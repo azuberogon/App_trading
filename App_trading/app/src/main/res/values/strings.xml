@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">App_trading</string>
+    <string name="app_name">NeoTrade</string>
+    <string name="eslogan">El nuevo trading, con visión de futuro</string>
 </resources>
