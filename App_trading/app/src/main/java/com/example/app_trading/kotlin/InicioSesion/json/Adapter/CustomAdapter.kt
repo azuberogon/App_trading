@@ -14,7 +14,13 @@ class CustomAdapter: RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
     var nombreAccion = arrayOf("Item 1", "Item 2", "Item 3", "Item 4", "Item 5") // aqui se van a cargar los datos hay que mirar como hacae para que los datos se pase del otro rv
     var valorAccion = arrayOf("Item 1", "Item 2", "Item 3", "Item 4", "Item 5")
-    val images = intArrayOf(R.drawable.)
+    val images = intArrayOf(R.drawable.baseline_arrow_drop_up_24,
+        R.drawable.baseline_arrow_drop_down_24,
+        R.drawable.baseline_arrow_drop_up_24,
+        R.drawable.baseline_arrow_drop_down_24,
+        R.drawable.baseline_arrow_drop_up_24)
+
+
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         var itemImage: ImageView
         var itemNombreAccion: TextView
@@ -39,7 +45,7 @@ class CustomAdapter: RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-
+        return nombreAccion.size
     }
 
 
