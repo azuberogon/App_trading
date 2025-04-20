@@ -1,6 +1,6 @@
-package com.example.app_trading.json.Model
+package com.example.app_trading.kotlin.InicioSesion.json.Model
 
-    data class StockPrice(
+data class StockPrice(
     val date: String,
     val close: Double,
     val high: Double,
@@ -9,4 +9,4 @@ package com.example.app_trading.json.Model
     val volume: Int
 )
 
-//da fallos solucionar 
+//da fallos solucionar

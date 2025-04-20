@@ -1,6 +1,9 @@
+import org.jetbrains.dokka.gradle.DokkaTask
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("org.jetbrains.dokka") version "1.9.10"
 }
 
 android {
@@ -34,7 +37,9 @@ android {
         jvmTarget = "11"
     }
 }
-
+tasks.withType<DokkaTask>().configureEach {
+    outputDirectory.set(file("docs"))
+}
 dependencies {
 
     implementation(libs.androidx.core.ktx)

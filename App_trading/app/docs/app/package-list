@@ -1,0 +1,39 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:com.example.app_trading.java.Json.Guardar////PointingToDeclaration/app/com.example.app_trading.java.Json.Guardar/index.html
+$dokka.location:com.example.app_trading.java.Json.Guardar/GuardarJson///PointingToDeclaration/app/com.example.app_trading.java.Json.Guardar/-guardar-json/index.html
+$dokka.location:com.example.app_trading.java.Json.Guardar/GuardarJson/GuardarJson/#/PointingToDeclaration/app/com.example.app_trading.java.Json.Guardar/-guardar-json/-guardar-json.html
+$dokka.location:com.example.app_trading.json.Adapter////PointingToDeclaration/app/com.example.app_trading.json.Adapter/index.html
+$dokka.location:com.example.app_trading.json.Adapter/StockAdapter.StockViewHolder///PointingToDeclaration/app/com.example.app_trading.json.Adapter/-stock-adapter/-stock-view-holder/index.html
+$dokka.location:com.example.app_trading.json.Adapter/StockAdapter.StockViewHolder/StockViewHolder/#android.view.View/PointingToDeclaration/app/com.example.app_trading.json.Adapter/-stock-adapter/-stock-view-holder/-stock-view-holder.html
+$dokka.location:com.example.app_trading.json.Adapter/StockAdapter.StockViewHolder/closePrice/#/PointingToDeclaration/app/com.example.app_trading.json.Adapter/-stock-adapter/-stock-view-holder/close-price.html
+$dokka.location:com.example.app_trading.json.Adapter/StockAdapter.StockViewHolder/date/#/PointingToDeclaration/app/com.example.app_trading.json.Adapter/-stock-adapter/-stock-view-holder/date.html
+$dokka.location:com.example.app_trading.json.Adapter/StockAdapter///PointingToDeclaration/app/com.example.app_trading.json.Adapter/-stock-adapter/index.html
+$dokka.location:com.example.app_trading.json.Adapter/StockAdapter/StockAdapter/#kotlin.collections.List[com.example.app_trading.json.Model.StockPrice]/PointingToDeclaration/app/com.example.app_trading.json.Adapter/-stock-adapter/-stock-adapter.html
+$dokka.location:com.example.app_trading.json.Adapter/StockAdapter/getItemCount/#/PointingToDeclaration/app/com.example.app_trading.json.Adapter/-stock-adapter/get-item-count.html
+$dokka.location:com.example.app_trading.json.Adapter/StockAdapter/onBindViewHolder/#com.example.app_trading.json.Adapter.StockAdapter.StockViewHolder#kotlin.Int/PointingToDeclaration/app/com.example.app_trading.json.Adapter/-stock-adapter/on-bind-view-holder.html
+$dokka.location:com.example.app_trading.json.Adapter/StockAdapter/onCreateViewHolder/#android.view.ViewGroup#kotlin.Int/PointingToDeclaration/app/com.example.app_trading.json.Adapter/-stock-adapter/on-create-view-holder.html
+$dokka.location:com.example.app_trading.json.Model////PointingToDeclaration/app/com.example.app_trading.json.Model/index.html
+$dokka.location:com.example.app_trading.json.Model/StockPrice///PointingToDeclaration/app/com.example.app_trading.json.Model/-stock-price/index.html
+$dokka.location:com.example.app_trading.json.Model/StockPrice/StockPrice/#kotlin.String#kotlin.Double#kotlin.Double#kotlin.Double#kotlin.Double#kotlin.Int/PointingToDeclaration/app/com.example.app_trading.json.Model/-stock-price/-stock-price.html
+$dokka.location:com.example.app_trading.json.Model/StockPrice/close/#/PointingToDeclaration/app/com.example.app_trading.json.Model/-stock-price/close.html
+$dokka.location:com.example.app_trading.json.Model/StockPrice/date/#/PointingToDeclaration/app/com.example.app_trading.json.Model/-stock-price/date.html
+$dokka.location:com.example.app_trading.json.Model/StockPrice/high/#/PointingToDeclaration/app/com.example.app_trading.json.Model/-stock-price/high.html
+$dokka.location:com.example.app_trading.json.Model/StockPrice/low/#/PointingToDeclaration/app/com.example.app_trading.json.Model/-stock-price/low.html
+$dokka.location:com.example.app_trading.json.Model/StockPrice/open/#/PointingToDeclaration/app/com.example.app_trading.json.Model/-stock-price/open.html
+$dokka.location:com.example.app_trading.json.Model/StockPrice/volume/#/PointingToDeclaration/app/com.example.app_trading.json.Model/-stock-price/volume.html
+$dokka.location:com.example.app_trading.kotlin.InicioSesion////PointingToDeclaration/app/com.example.app_trading.kotlin.InicioSesion/index.html
+$dokka.location:com.example.app_trading.kotlin.InicioSesion/Inicio_de_sesion///PointingToDeclaration/app/com.example.app_trading.kotlin.InicioSesion/-inicio_de_sesion/index.html
+$dokka.location:com.example.app_trading.kotlin.InicioSesion/Inicio_de_sesion/Inicio_de_sesion/#/PointingToDeclaration/app/com.example.app_trading.kotlin.InicioSesion/-inicio_de_sesion/-inicio_de_sesion.html
+$dokka.location:com.example.app_trading.kotlin.InicioSesion/Registro_usuario///PointingToDeclaration/app/com.example.app_trading.kotlin.InicioSesion/-registro_usuario/index.html
+$dokka.location:com.example.app_trading.kotlin.InicioSesion/Registro_usuario/Registro_usuario/#/PointingToDeclaration/app/com.example.app_trading.kotlin.InicioSesion/-registro_usuario/-registro_usuario.html
+$dokka.location:com.example.app_trading////PointingToDeclaration/app/com.example.app_trading/index.html
+$dokka.location:com.example.app_trading/MainActivity///PointingToDeclaration/app/com.example.app_trading/-main-activity/index.html
+$dokka.location:com.example.app_trading/MainActivity/MainActivity/#/PointingToDeclaration/app/com.example.app_trading/-main-activity/-main-activity.html
+$dokka.location:com.example.app_trading/MainActivity/fetchDataFromApi/#kotlin.Function1[kotlin.collections.List[com.example.app_trading.json.Model.StockPrice],kotlin.Unit]/PointingToDeclaration/app/com.example.app_trading/-main-activity/fetch-data-from-api.html
+com.example.app_trading
+com.example.app_trading.java.Json.Guardar
+com.example.app_trading.json.Adapter
+com.example.app_trading.json.Model
+com.example.app_trading.kotlin.InicioSesion
+
