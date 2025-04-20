@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.app_trading.kotlin.InicioSesion.json.Adapter.CustomAdapter
 import com.example.app_trading.kotlin.InicioSesion.json.Adapter.StockAdapter
 import com.example.app_trading.kotlin.InicioSesion.json.Model.StockPrice
 import com.google.gson.Gson
@@ -38,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         fetchDataFromApi { stockList ->
             runOnUiThread {
-                recyclerView.adapter = StockAdapter(stockList)
+                recyclerView.adapter = CustomAdapter(stockList)
             }
         }
     }

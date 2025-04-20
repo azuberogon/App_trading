@@ -23,7 +23,7 @@ class test_rm_rv : AppCompatActivity() {
 //        }
         this.supportActionBar?.hide()
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView1)
-        val adapter = CustomAdapter()
+        val adapter = null// CustomAdapter()
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
