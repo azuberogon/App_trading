@@ -56,7 +56,9 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.9.3")
     implementation ("com.google.code.gson:gson:2.8.9")
 
+
     //para que se haga la tabla y poder mostrar datos en graficos
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
    // implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
 
 }

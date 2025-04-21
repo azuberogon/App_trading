@@ -1,4 +1,4 @@
-package com.example.app_trading.kotlin.InicioSesion.json.Adapter
+package com.example.app_trading.kotlin.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.app_trading.R
-import com.example.app_trading.kotlin.InicioSesion.json.Model.busquedasEntity
+import com.example.app_trading.kotlin.Model.busquedasEntity
 
 class CustomAdapter(private val busquedaList: List<busquedasEntity>):
     RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
@@ -40,9 +40,16 @@ class CustomAdapter(private val busquedaList: List<busquedasEntity>):
         return ViewHolder(v)
     }
     override fun onBindViewHolder(viewholder: ViewHolder, i: Int) {
-        val stock = busquedaList[i]
-        viewholder.itemNombreAccion.text = stock.name
-        viewholder.itemValorAccion.text = stock.name
+        val nameBusqueda = busquedaList[i]
+        viewholder.itemNombreAccion.text = nameBusqueda.name
+        viewholder.itemValorAccion.text = "Ticker: ${nameBusqueda.ticker}"
+
+        // Cambia la imagen según una condición (por ejemplo, si está activo)
+        if (nameBusqueda.isActive) {
+            viewholder.itemImage.setImageResource(R.drawable.baseline_arrow_drop_up_24)
+        } else {
+            viewholder.itemImage.setImageResource(R.drawable.baseline_arrow_drop_down_24)
+        }
 
 
 //        viewholder.itemNombreAccion.text = nombreAccion[i]

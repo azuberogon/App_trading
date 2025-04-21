@@ -1,4 +1,4 @@
-package com.example.app_trading.kotlin.InicioSesion.json.Adapter
+package com.example.app_trading.kotlin.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.app_trading.R
-import com.example.app_trading.kotlin.InicioSesion.json.Model.StockPrice
+import com.example.app_trading.kotlin.Model.StockPrice
 
 /**
  * `StockAdapter` es un adaptador para un `RecyclerView` que muestra una lista de precios de acciones.

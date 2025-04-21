@@ -1,5 +1,5 @@
-package com.example.app_trading.kotlin.InicioSesion.json.Model
-
+package com.example.app_trading.kotlin.Model
+//esto es para el rv que bsuca las empresas que cotizane bolsa
 data class busquedasEntity(
     val ticker: String,
     val assetType: String,

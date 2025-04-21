@@ -4,11 +4,12 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.AutoCompleteTextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.app_trading.kotlin.InicioSesion.json.Adapter.CustomAdapter
-import com.example.app_trading.kotlin.InicioSesion.json.Model.busquedasEntity
+import com.example.app_trading.kotlin.adapter.CustomAdapter
+import com.example.app_trading.kotlin.Model.busquedasEntity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import okhttp3.OkHttpClient
@@ -28,23 +29,32 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerAdapter = CustomAdapter(fullList)
         recyclerView.adapter = recyclerAdapter
-
+        // Agregar animaciones y separadores al RecyclerView
+        recyclerView.itemAnimator = androidx.recyclerview.widget.DefaultItemAnimator()
+        recyclerView.addItemDecoration(
+            androidx.recyclerview.widget.DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
+        )
         // Escucha los cambios en el texto del AutoCompleteTextView
         searchView.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (!s.isNullOrEmpty() && s.length >= 2) { // Realiza la búsqueda a partir de 2 caracteres
-                    fetchDataFromApi(s.toString()) { busquedasList ->
+                if (!s.isNullOrEmpty() && s.length >= 2) {
+                    fetchDataFromApi(s.toString()) { busquedasList, error ->
                         runOnUiThread {
-                            fullList.clear()
-                            fullList.addAll(busquedasList)
-                            recyclerAdapter.notifyDataSetChanged()
+                            if (error != null) {
+                                Toast.makeText(this@MainActivity, error, Toast.LENGTH_SHORT).show()
+                            } else {
+                                fullList.clear()
+                                fullList.addAll(busquedasList)
+                                recyclerAdapter.notifyDataSetChanged()
+                            }
                         }
                     }
                 }
             }
             override fun afterTextChanged(s: Editable?) {}
         })
+
     }
 
     /**
@@ -53,7 +63,7 @@ class MainActivity : AppCompatActivity() {
      * @param query El texto ingresado en el AutoCompleteTextView para buscar en la API.
      * @param callback Una función lambda que se llama con la lista de resultados recuperada de la API.
      */
-    private fun fetchDataFromApi(query: String, callback: (List<busquedasEntity>) -> Unit) {
+    private fun fetchDataFromApi(query: String, callback: (List<busquedasEntity>, String?) -> Unit) {
         val client = OkHttpClient()
         val url = "https://api.tiingo.com/tiingo/utilities/search?query=$query&token=15fd6a8cb82c76c6e845ef46f47956c4319ecaac"
         val request = Request.Builder()
@@ -69,16 +79,16 @@ class MainActivity : AppCompatActivity() {
                     if (responseData != null) {
                         val listType = object : TypeToken<List<busquedasEntity>>() {}.type
                         val busquedasList: List<busquedasEntity> = Gson().fromJson(responseData, listType)
-                        callback(busquedasList)
+                        callback(busquedasList, null) // Sin errores
                     } else {
-                        callback(emptyList())
+                        callback(emptyList(), "Respuesta vacía de la API")
                     }
                 } else {
-                    callback(emptyList())
+                    callback(emptyList(), "Error en la API: ${response.code}")
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
-                callback(emptyList())
+                callback(emptyList(), "Error de red: ${e.message}")
             }
         }.start()
     }

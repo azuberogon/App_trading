@@ -5,12 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".rm_busquedas">
-    <AutoCompleteTextView
-        android:id="@+id/autoCompleteTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Buscar acciones"
-        android:inputType="text"
-        tools:ignore="MissingConstraints" />
+    tools:context=".graficas_test1">
+
 </androidx.constraintlayout.widget.ConstraintLayout>
