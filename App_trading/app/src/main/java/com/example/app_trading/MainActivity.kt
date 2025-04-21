@@ -1,75 +1,63 @@
 package com.example.app_trading
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.AutoCompleteTextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.app_trading.kotlin.InicioSesion.json.Adapter.CustomAdapter
-import com.example.app_trading.kotlin.InicioSesion.json.Adapter.StockAdapter
-import com.example.app_trading.kotlin.InicioSesion.json.Model.StockPrice
+import com.example.app_trading.kotlin.InicioSesion.json.Model.busquedasEntity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import okhttp3.OkHttpClient
 import okhttp3.Request
 
 class MainActivity : AppCompatActivity() {
-//    private lateinit var binding: ActivityMainBinding
+    private val fullList = mutableListOf<busquedasEntity>() // Lista completa de datos
+    private lateinit var recyclerAdapter: CustomAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//
-//        binding = ActivityMainBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
-//
-//        val navView: BottomNavigationView = binding.navView
-//
-//        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-//        // Passing each menu ID as a set of Ids because each
-//        // menu should be considered as top level destinations.
-//        val appBarConfiguration = AppBarConfiguration(
-//            setOf(
-//                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
-//            )
-//        )
-//        setupActionBarWithNavController(navController, appBarConfiguration)
-//        navView.setupWithNavController(navController)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        val searchView = findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView)
 
-        fetchDataFromApi { stockList ->
-            runOnUiThread {
-                recyclerView.adapter = CustomAdapter(stockList)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerAdapter = CustomAdapter(fullList)
+        recyclerView.adapter = recyclerAdapter
+
+        // Escucha los cambios en el texto del AutoCompleteTextView
+        searchView.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (!s.isNullOrEmpty() && s.length >= 2) { // Realiza la búsqueda a partir de 2 caracteres
+                    fetchDataFromApi(s.toString()) { busquedasList ->
+                        runOnUiThread {
+                            fullList.clear()
+                            fullList.addAll(busquedasList)
+                            recyclerAdapter.notifyDataSetChanged()
+                        }
+                    }
+                }
             }
-        }
+            override fun afterTextChanged(s: Editable?) {}
+        })
     }
 
     /**
-
-     * Obtiene datos históricos de precios de acciones para Apple (AAPL) desde la API de Tiingo.
+     * Realiza una búsqueda en la API utilizando el texto ingresado.
      *
-     * Esta función realiza una solicitud de red asíncrona a la API de Tiingo para recuperar
-     * los precios históricos diarios de las acciones de AAPL. Los datos se obtienen para el período que comienza
-     * desde '2019-01-02'. Se espera que la respuesta de la API sea un array JSON de objetos `StockPrice`.
-     *
-     * La función utiliza un callback para entregar los datos obtenidos una vez que estén disponibles.
-     *
-     * @param callback Una función lambda que acepta una `List<StockPrice>` como parámetro.
-     *                 Este callback se invocará en un hilo de fondo con los datos de precios
-     *                 de acciones obtenidos, o una lista vacía si ocurrió un error o los datos son nulos.
-     *
-     * @throws Exception Si ocurre algún error de red o de análisis (parsing) durante el proceso. Las excepciones se capturan internamente e imprimen en la consola.
-     *
-     * Nota:
-     * - Esta función realiza operaciones de red en un hilo de fondo para evitar el bloqueo del hilo principal.
-     * - El token de la API de Tiingo está codificado directamente en este ejemplo. En un entorno de producción, debe almacenarse de forma segura y recuperarse adecuadamente.
-     * - El punto final (endpoint) de la API y los parámetros también están codificados directamente. Para mayor flexibilidad, es posible que desees parametrizar estos valores.
-     * - El manejo de errores es básico en este ejemplo. En una aplicación real, podría mejorarse añadiendo un segundo parámetro al callback para pasar información sobre el error.
+     * @param query El texto ingresado en el AutoCompleteTextView para buscar en la API.
+     * @param callback Una función lambda que se llama con la lista de resultados recuperada de la API.
      */
-    fun fetchDataFromApi(callback: (List<StockPrice>) -> Unit) {
+    private fun fetchDataFromApi(query: String, callback: (List<busquedasEntity>) -> Unit) {
         val client = OkHttpClient()
+        val url = "https://api.tiingo.com/tiingo/utilities/search?query=$query&token=15fd6a8cb82c76c6e845ef46f47956c4319ecaac"
         val request = Request.Builder()
-            .url("https://api.tiingo.com/tiingo/daily/aapl/prices?startDate=2019-01-02&token=15fd6a8cb82c76c6e845ef46f47956c4319ecaac")
+            .url(url)
             .addHeader("Content-Type", "application/json")
             .build()
 
@@ -79,17 +67,19 @@ class MainActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val responseData = response.body?.string()
                     if (responseData != null) {
-                        val listType = object : TypeToken<List<StockPrice>>() {}.type
-                        val stockPrices: List<StockPrice> = Gson().fromJson(responseData, listType)
-                        callback(stockPrices)
+                        val listType = object : TypeToken<List<busquedasEntity>>() {}.type
+                        val busquedasList: List<busquedasEntity> = Gson().fromJson(responseData, listType)
+                        callback(busquedasList)
+                    } else {
+                        callback(emptyList())
                     }
+                } else {
+                    callback(emptyList())
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
+                callback(emptyList())
             }
         }.start()
     }
-
 }
-
-

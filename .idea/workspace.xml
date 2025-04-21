@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+    <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_inicio_de_sesion.xml">
+        <config>
+          <theme>@style/Theme.App_trading</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+        <config>
+          <theme>@style/Theme.App_trading</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_registro_usuario.xml">
+        <config>
+          <theme>@style/Theme.App_trading</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_test_graficos.xml">
+        <config>
+          <theme>@style/Theme.App_trading</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_test_rm_rv.xml">
+        <config>
+          <theme>@style/Theme.App_trading</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/card_layout.xml">
+        <config>
+          <theme>@style/Theme.App_trading</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/row_stock.xml">
+        <config>
+          <theme>@style/Theme.App_trading</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/menu/bottom_nav_menu.xml">
+        <config>
+          <theme>@style/Theme.App_trading</theme>
+        </config>
+      </layout>
+    </layouts>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1b097087-bea0-45d7-a9e6-7f1cc7140123" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.~lock.1ºTrabajo fin de grado.odt#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.~lock.Api apuntes.odt#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1ºTrabajo fin de grado.odt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Api apuntes.odt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/AndroidProjectSystem.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/migrations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Python/json.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.java.Json.Guardar/-guardar-json/-guardar-json.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.java.Json.Guardar/-guardar-json/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.java.Json.Guardar/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.json.Adapter/-stock-adapter/-stock-adapter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.json.Adapter/-stock-adapter/-stock-view-holder/-stock-view-holder.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.json.Adapter/-stock-adapter/-stock-view-holder/close-price.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.json.Adapter/-stock-adapter/-stock-view-holder/date.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.json.Adapter/-stock-adapter/-stock-view-holder/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.json.Adapter/-stock-adapter/get-item-count.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.json.Adapter/-stock-adapter/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.json.Adapter/-stock-adapter/on-bind-view-holder.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.json.Adapter/-stock-adapter/on-create-view-holder.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.json.Adapter/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.json.Model/-stock-price/-stock-price.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.json.Model/-stock-price/close.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.json.Model/-stock-price/date.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.json.Model/-stock-price/high.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.json.Model/-stock-price/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.json.Model/-stock-price/low.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.json.Model/-stock-price/open.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.json.Model/-stock-price/volume.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.json.Model/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.kotlin.InicioSesion/-inicio_de_sesion/-inicio_de_sesion.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.kotlin.InicioSesion/-inicio_de_sesion/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.kotlin.InicioSesion/-registro_usuario/-registro_usuario.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.kotlin.InicioSesion/-registro_usuario/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading.kotlin.InicioSesion/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading/-main-activity/-main-activity.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading/-main-activity/fetch-data-from-api.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading/-main-activity/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/com.example.app_trading/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/app/package-list" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/anchor-copy-button.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/arrow_down.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/burger.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/copy-icon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/copy-successful-icon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/footer-go-to-link.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/go-to-top-icon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/logo-icon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/nav-icons/abstract-class-kotlin.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/nav-icons/abstract-class.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/nav-icons/annotation-kotlin.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/nav-icons/annotation.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/nav-icons/class-kotlin.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/nav-icons/class.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/nav-icons/enum-kotlin.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/nav-icons/enum.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/nav-icons/exception-class.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/nav-icons/field-value.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/nav-icons/field-variable.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/nav-icons/function.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/nav-icons/interface-kotlin.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/nav-icons/interface.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/nav-icons/object.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/nav-icons/typealias-kotlin.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/images/theme-toggle.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/navigation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/scripts/clipboard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/scripts/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/scripts/navigation-loader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/scripts/pages.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/scripts/platform-content-handler.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/scripts/prism.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/scripts/sourceset_dependencies.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/scripts/symbol-parameters-wrapper_deferred.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/styles/font-jb-sans-auto.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/styles/logo-styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/styles/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/styles/prism.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/docs/styles/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/example/app_trading/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/app_trading/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/app_trading/kotlin/InicioSesion/Inicio_de_sesion.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/app_trading/kotlin/InicioSesion/Registro_usuario.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/app_trading/kotlin/InicioSesion/json/Adapter/CustomAdapter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/app_trading/kotlin/InicioSesion/json/Adapter/StockAdapter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/app_trading/kotlin/InicioSesion/json/Model/StockPrice.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/app_trading/test_rm_rv.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/logo-playstore.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_account_balance_wallet_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_account_circle_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_arrow_back_ios_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_arrow_drop_down_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_arrow_drop_up_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_arrow_forward_ios_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_auto_graph_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_backup_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_bookmark_add_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_bookmark_added_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_bookmark_border_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_bookmark_remove_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_cloud_download_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_cloud_upload_24.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_home_black_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_notifications_black_24dp.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/logo_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_inicio_de_sesion.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_registro_usuario.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_test_rm_rv.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/card_layout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_stock.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/bottom_nav_menu.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/logo.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/logo_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/logo.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/logo_foreground.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/logo_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/logo.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/logo_foreground.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/logo_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/logo.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/logo_foreground.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/logo_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/logo.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/logo_foreground.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/logo_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/logo.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/logo_foreground.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/logo_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/backup_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/app_trading/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Memoria de app de trading.odt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../apuntes de kotling .odt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dff97701-e5b0-462b-b449-7c3ad2b4b0ed.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dff97701-e5b0-462b-b449-7c3ad2b4b0ed.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../usr-pss.txt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\chuna\.android\avd\Pixel_3a_API_34_extension_level_7_x86_64.avd)]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="valueResourceFile" />
+        <option value="Kotlin Data Class" />
+        <option value="resourceFile" />
+        <option value="Kotlin Class" />
+        <option value="layoutResourceFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_inicio_de_sesion.xml" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2s2eMdqlY8TLIQ1FSKc6r7OrBvv" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Android App.TestGraficos (1).executor": "Run",
+    "Android App.TestGraficos.executor": "Run",
+    "Android App.app.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "com.google.services.firebase.aqiPopupShown": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/chuna/docuemtnos 2/Proyecto TFG/App_trading/App_trading",
+    "project.structure.last.edited": "Suggestions",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\chuna\docuemtnos 2\Proyecto TFG\App_trading\app\src\main\res\drawable" />
+      <recent name="C:\Users\chuna\docuemtnos 2\Proyecto TFG\App_trading\app\src\main\java\com\example\app_trading\kotlin" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\chuna\docuemtnos 2\Proyecto TFG\App_trading\app\src\main\res\layout\asd" />
+    </key>
+    <key name="android.template.1278270922">
+      <recent name="com.example.app_trading" />
+    </key>
+    <key name="android.template.1111710798">
+      <recent name="com.example.app_trading" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.example.app_trading.kotlin.InicioSesion" />
+    </key>
+    <key name="android.template.862964509">
+      <recent name="com.example.app_trading" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Android App.app">
+    <configuration name="TestGraficos (1)" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false" temporary="true">
+      <module name="App_trading.app" />
+      <option name="ANDROID_RUN_CONFIGURATION_SCHEMA_VERSION" value="1" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="ALLOW_ASSUME_VERIFIED" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="specific_activity" />
+      <option name="RESTORE_ENABLED" value="false" />
+      <option name="RESTORE_FILE" value="" />
+      <option name="RESTORE_FRESH_INSTALL_ONLY" value="false" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Hybrid>
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY" value="" />
+      <option name="ACTIVITY_CLASS" value="com.example.app_trading.TestGraficos" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestGraficos" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false" temporary="true">
+      <module name="App_trading.app" />
+      <option name="ANDROID_RUN_CONFIGURATION_SCHEMA_VERSION" value="1" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="ALLOW_ASSUME_VERIFIED" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="specific_activity" />
+      <option name="RESTORE_ENABLED" value="false" />
+      <option name="RESTORE_FILE" value="" />
+      <option name="RESTORE_FRESH_INSTALL_ONLY" value="false" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Hybrid>
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY" value="" />
+      <option name="ACTIVITY_CLASS" value="com.example.app_trading.TestGraficos" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="App_trading.app" />
+      <option name="ANDROID_RUN_CONFIGURATION_SCHEMA_VERSION" value="1" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="ALLOW_ASSUME_VERIFIED" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="RESTORE_ENABLED" value="false" />
+      <option name="RESTORE_FILE" value="" />
+      <option name="RESTORE_FRESH_INSTALL_ONLY" value="false" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Hybrid>
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Android App.TestGraficos (1)" />
+        <item itemvalue="Android App.TestGraficos" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1b097087-bea0-45d7-a9e6-7f1cc7140123" name="Changes" comment="" />
+      <created>1737658049406</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1737658049406</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="play_dynamic_filters_status">
+    <option name="appIdToCheckInfo">
+      <map>
+        <entry key="com.example.app_trading">
+          <value>
+            <CheckInfo lastCheckTimestamp="1745144154274" />
+          </value>
+        </entry>
+        <entry key="com.example.app_trading.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1745144154275" />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -1,5 +1,5 @@
 package com.example.app_trading.kotlin.InicioSesion.json.Model
-
+//clase para las acciones que se mostraran en las graficas
 data class StockPrice(
     val date: String,
     val close: Double,

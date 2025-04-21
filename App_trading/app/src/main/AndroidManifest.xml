@@ -14,33 +14,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_trading"
         tools:targetApi="31">
+        <activity
+            android:name=".rm_busquedas"
+            android:exported="false" >
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
         <activity
             android:name=".test_rm_rv"
-            android:exported="false" >
-
-        </activity>
-
+            android:exported="false"></activity>
         <activity
             android:name=".kotlin.InicioSesion.Registro_usuario"
             android:exported="false" />
-
-
         <activity
             android:name=".kotlin.InicioSesion.Inicio_de_sesion"
-            android:exported="false"></activity>
-
-<!--esta es la ventana principal de la app-->
+            android:exported="false" /> <!-- esta es la ventana principal de la app -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 
