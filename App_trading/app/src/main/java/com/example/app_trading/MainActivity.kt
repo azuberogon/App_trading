@@ -1,5 +1,6 @@
 package com.example.app_trading
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -14,10 +15,13 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import okhttp3.OkHttpClient
 import okhttp3.Request
-
+import android.os.Handler
+import android.os.Looper
 class MainActivity : AppCompatActivity() {
     private val fullList = mutableListOf<busquedasEntity>() // Lista completa de datos
     private lateinit var recyclerAdapter: CustomAdapter
+    private val handler = Handler(Looper.getMainLooper()) // Handler para debounce
+    private var searchRunnable: Runnable? = null // Runnable para la búsqueda
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,45 +31,48 @@ class MainActivity : AppCompatActivity() {
         val searchView = findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerAdapter = CustomAdapter(fullList)
+        recyclerAdapter = CustomAdapter(fullList) { selectedItem ->
+            val intent = Intent(this, graficas_test1::class.java)
+            intent.putExtra("name", selectedItem.name)
+            intent.putExtra("ticker", selectedItem.ticker)
+            startActivity(intent)
+        }
         recyclerView.adapter = recyclerAdapter
-        // Agregar animaciones y separadores al RecyclerView
+
         recyclerView.itemAnimator = androidx.recyclerview.widget.DefaultItemAnimator()
         recyclerView.addItemDecoration(
             androidx.recyclerview.widget.DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
         )
-        // Escucha los cambios en el texto del AutoCompleteTextView
+
+        // Escucha los cambios en el texto del AutoCompleteTextView con debounce
         searchView.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (!s.isNullOrEmpty() && s.length >= 2) {
-                    fetchDataFromApi(s.toString()) { busquedasList, error ->
-                        runOnUiThread {
-                            if (error != null) {
-                                Toast.makeText(this@MainActivity, error, Toast.LENGTH_SHORT).show()
-                            } else {
-                                fullList.clear()
-                                fullList.addAll(busquedasList)
-                                recyclerAdapter.notifyDataSetChanged()
+                searchRunnable?.let { handler.removeCallbacks(it) } // Cancela el runnable anterior
+                searchRunnable = Runnable {
+                    if (!s.isNullOrEmpty() && s.length >= 2) {
+                        fetchDataFromApi(s.toString()) { busquedasList, error ->
+                            runOnUiThread {
+                                if (error != null) {
+                                    Toast.makeText(this@MainActivity, error, Toast.LENGTH_SHORT).show()
+                                } else {
+                                    fullList.clear()
+                                    fullList.addAll(busquedasList)
+                                    recyclerAdapter.notifyDataSetChanged()
+                                }
                             }
                         }
                     }
                 }
+                handler.postDelayed(searchRunnable!!, 500) // Espera 500ms antes de ejecutar
             }
             override fun afterTextChanged(s: Editable?) {}
         })
-
     }
 
-    /**
-     * Realiza una búsqueda en la API utilizando el texto ingresado.
-     *
-     * @param query El texto ingresado en el AutoCompleteTextView para buscar en la API.
-     * @param callback Una función lambda que se llama con la lista de resultados recuperada de la API.
-     */
     private fun fetchDataFromApi(query: String, callback: (List<busquedasEntity>, String?) -> Unit) {
         val client = OkHttpClient()
-        val url = "https://api.tiingo.com/tiingo/utilities/search?query=$query&token=15fd6a8cb82c76c6e845ef46f47956c4319ecaac"
+        val url = "https://api.tiingo.com/tiingo/utilities/search?query=$query&token=${Api.TOKEN}"
         val request = Request.Builder()
             .url(url)
             .addHeader("Content-Type", "application/json")

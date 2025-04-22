@@ -17,7 +17,7 @@
             android:id="@+id/item_nombreAccion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nombre de la acción"
+            android:text="@string/nombre_de_la_acci_n"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textStyle="bold" />
 
@@ -25,7 +25,7 @@
             android:id="@+id/item_valorAccion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Valor de la acción"
+            android:text="@string/valor_de_la_acci_n"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:layout_marginTop="4dp" />
 

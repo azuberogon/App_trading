@@ -9,59 +9,43 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.app_trading.R
 import com.example.app_trading.kotlin.Model.busquedasEntity
 
-class CustomAdapter(private val busquedaList: List<busquedasEntity>):
-    RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+    class CustomAdapter(
+        private val busquedaList: List<busquedasEntity>,
+        private val onItemClick: (busquedasEntity) -> Unit
+    ) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
-//    var nombreAccion = arrayOf("Item 1", "Item 2", "Item 3", "Item 4", "Item 5") // aqui se van a cargar los datos hay que mirar como hacae para que los datos se pase del otro rv
-//    var valorAccion = arrayOf("Item 1", "Item 2", "Item 3", "Item 4", "Item 5")
-//    //aqui falta la validacion para subir o bajar que se pondra con los datos para saber si subio o bajo respecto al anterior
-//    val images = intArrayOf(R.drawable.baseline_arrow_drop_up_24,
-//        R.drawable.baseline_arrow_drop_down_24,
-//        R.drawable.baseline_arrow_drop_up_24,
-//        R.drawable.baseline_arrow_drop_down_24,
-//        R.drawable.baseline_arrow_drop_up_24)
+        inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+            val itemImage: ImageView = itemView.findViewById(R.id.item_image)
+            val itemNombreAccion: TextView = itemView.findViewById(R.id.item_nombreAccion)
+            val itemValorAccion: TextView = itemView.findViewById(R.id.item_valorAccion)
 
-
-    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        var itemImage: ImageView
-        var itemNombreAccion: TextView
-        var itemValorAccion: TextView
-
-        init {
-            itemImage = itemView.findViewById(R.id.item_image)
-            itemNombreAccion = itemView.findViewById(R.id.item_nombreAccion)
-            itemValorAccion = itemView.findViewById(R.id.item_valorAccion)
+            init {
+                itemView.setOnClickListener {
+                    onItemClick(busquedaList[adapterPosition])
+                }
+            }
         }
 
-    }
-
-    override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
-        val v = LayoutInflater.from(viewGroup.context).inflate(R.layout.card_layout, viewGroup, false)
-        return ViewHolder(v)
-    }
-    override fun onBindViewHolder(viewholder: ViewHolder, i: Int) {
-        val nameBusqueda = busquedaList[i]
-        viewholder.itemNombreAccion.text = nameBusqueda.name
-        viewholder.itemValorAccion.text = "Ticker: ${nameBusqueda.ticker}"
-
-        // Cambia la imagen según una condición (por ejemplo, si está activo)
-        if (nameBusqueda.isActive) {
-            viewholder.itemImage.setImageResource(R.drawable.baseline_arrow_drop_up_24)
-        } else {
-            viewholder.itemImage.setImageResource(R.drawable.baseline_arrow_drop_down_24)
+        override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
+            val v = LayoutInflater.from(viewGroup.context).inflate(R.layout.card_layout, viewGroup, false)
+            return ViewHolder(v)
         }
 
+        override fun onBindViewHolder(viewholder: ViewHolder, i: Int) {
+            val nameBusqueda = busquedaList[i]
+            viewholder.itemNombreAccion.text = nameBusqueda.name
+            viewholder.itemValorAccion.text = "Ticker: ${nameBusqueda.ticker}"
 
-//        viewholder.itemNombreAccion.text = nombreAccion[i]
-//        viewholder.itemValorAccion.text = valorAccion[i]
-//        viewholder.itemImage.setImageResource(images[i])
+            if (nameBusqueda.isActive) {
+                viewholder.itemImage.setImageResource(R.drawable.baseline_arrow_drop_up_24)
+            } else {
+                viewholder.itemImage.setImageResource(R.drawable.baseline_arrow_drop_down_24)
+            }
+        }
+
+        override fun getItemCount(): Int = busquedaList.size
     }
 
-    override fun getItemCount(): Int {
-        return busquedaList.size
-    }
 
 
-
-
-}
+//}

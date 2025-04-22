@@ -1,63 +1,297 @@
 package com.example.app_trading
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-
-import android.graphics.Color
-
 import com.github.mikephil.charting.charts.CandleStickChart
+import com.github.mikephil.charting.charts.CombinedChart
+import com.github.mikephil.charting.components.YAxis
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.data.CandleData
 import com.github.mikephil.charting.data.CandleDataSet
 import com.github.mikephil.charting.data.CandleEntry
+import com.github.mikephil.charting.data.CombinedData
+import com.github.mikephil.charting.formatter.ValueFormatter
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import org.json.JSONArray
+import java.io.BufferedReader
+import java.io.InputStreamReader
 
 class graficas_test1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_graficas_test1)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        val name = intent.getStringExtra("name") ?: "Sin nombre"
+        val ticker = intent.getStringExtra("ticker") ?: ""
+
+        // Configurar el título
+        val titleTextView = findViewById<TextView>(R.id.titleTextView)
+        titleTextView.text = name
+
+        // Cargar datos desde el JSON estático
+        loadStaticJsonData()
+        // Realizar la llamada a la API
+        //fetchCandleData(ticker)
+
+
+    }
+/*
+    private fun fetchCandleData(ticker: String) {
+        val client = OkHttpClient()
+        val url = "https://api.tiingo.com/tiingo/daily/$ticker/prices?startDate=2012-1-1&endDate=2016-1-1&format=json&resampleFreq=monthly&token=${Api.TOKEN}"
+        val request = Request.Builder()
+            .url(url)
+            .addHeader("Content-Type", "application/json")
+            .build()
+
+        Thread {
+            try {
+                val response = client.newCall(request).execute()
+                if (response.isSuccessful) {
+                    val responseData = response.body?.string()
+                    if (responseData != null) {
+                        val jsonArray = JSONArray(responseData)
+                        val entries = mutableListOf<CandleEntry>()
+
+                        for (i in 0 until jsonArray.length()) {
+                            val jsonObject = jsonArray.getJSONObject(i)
+                            val date = i.toFloat()
+                            val high = jsonObject.getDouble("high").toFloat()
+                            val low = jsonObject.getDouble("low").toFloat()
+                            val open = jsonObject.getDouble("open").toFloat()
+                            val close = jsonObject.getDouble("close").toFloat()
+                            entries.add(CandleEntry(date, high, low, open, close))
+                        }
+
+                        runOnUiThread {
+                            if (entries.isEmpty()) {
+                                val titleTextView = findViewById<TextView>(R.id.titleTextView)
+                                titleTextView.text = "No hay datos disponibles para el ticker: $ticker"
+                            } else {
+                                setupCandleChart(entries)
+                            }
+                        }
+                    }
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }.start()
+    }
+*/
+
+
+    private fun setupTradingChart(entries: List<CandleEntry>, volumeEntries: List<BarEntry>) {
+        val combinedChart = findViewById<CombinedChart>(R.id.combinedChart)
+
+        // Configurar el dataset de velas
+        val candleDataSet = CandleDataSet(entries, "Historial de Precios")
+        candleDataSet.color = android.graphics.Color.rgb(80, 80, 80)
+        candleDataSet.shadowColor = android.graphics.Color.DKGRAY
+        candleDataSet.shadowWidth = 1.5f // Grosor de las líneas de sombra
+        candleDataSet.decreasingColor = android.graphics.Color.RED
+        candleDataSet.increasingColor = android.graphics.Color.GREEN
+        candleDataSet.decreasingPaintStyle = android.graphics.Paint.Style.FILL
+        candleDataSet.increasingPaintStyle = android.graphics.Paint.Style.FILL
+        candleDataSet.barSpace = 0.1f // Reduce el espacio entre velas
+
+        // Configurar el dataset de volumen
+        // Configurar el dataset de volumen
+        val barDataSet = BarDataSet(volumeEntries, "Volumen")
+        barDataSet.color = android.graphics.Color.BLUE
+        barDataSet.axisDependency = YAxis.AxisDependency.RIGHT
+
+// Crear los datos de barras
+        val barData = BarData(barDataSet)
+        barData.barWidth = 0.9f // Configurar el ancho de las barras
+
+// Combinar los datos
+        val candleData = CandleData(candleDataSet)
+        val combinedData = CombinedData()
+        combinedData.setData(candleData)
+        combinedData.setData(barData)
+
+        // Configurar el gráfico combinado
+        combinedChart.data = combinedData
+        combinedChart.setDrawGridBackground(false)
+        combinedChart.setDrawBarShadow(false)
+        combinedChart.isHighlightPerDragEnabled = true
+        combinedChart.setScaleEnabled(true)
+        combinedChart.setPinchZoom(true)
+
+        // Configurar el eje X
+        val xAxis = combinedChart.xAxis
+        xAxis.position = com.github.mikephil.charting.components.XAxis.XAxisPosition.BOTTOM
+        xAxis.granularity = 1f
+        xAxis.textSize = 14f // Tamaño del texto del eje X
+        xAxis.valueFormatter = object : ValueFormatter() {
+            override fun getFormattedValue(value: Float): String {
+                return "Día ${value.toInt() + 1}" // Ajusta según tus datos
+            }
         }
 
-        // Obtén la referencia al CandleStickChart desde el layout
+        // Configurar el eje Y izquierdo (para precios)
+        val yAxisLeft = combinedChart.axisLeft
+        yAxisLeft.setDrawGridLines(true)
+        yAxisLeft.textSize = 14f // Tamaño del texto del eje Y izquierdo
+
+        // Configurar el eje Y derecho (para volumen)
+        val yAxisRight = combinedChart.axisRight
+        yAxisRight.setDrawGridLines(false)
+        yAxisRight.textSize = 14f // Tamaño del texto del eje Y derecho
+        yAxisRight.valueFormatter = object : ValueFormatter() {
+            override fun getFormattedValue(value: Float): String {
+                return "${(value / 1000).toInt()}k"
+            }
+        }
+
+        // Configurar la leyenda
+        val legend = combinedChart.legend
+        legend.textSize = 16f // Tamaño del texto de la leyenda
+
+        // Ajustar el zoom inicial
+        combinedChart.zoom(2f, 1f, 0f, 0f) // Zoom horizontal (2x) y vertical (1x)
+
+        combinedChart.invalidate() // Refrescar el gráfico
+    }
+//    private fun setupTradingChart(entries: List<CandleEntry>, volumeEntries: List<BarEntry>) {
+//        val combinedChart = findViewById<CombinedChart>(R.id.combinedChart)
+//
+//        // Configurar el dataset de velas
+//        val candleDataSet = CandleDataSet(entries, "Historial de Precios")
+//        candleDataSet.color = android.graphics.Color.rgb(80, 80, 80)
+//        candleDataSet.shadowColor = android.graphics.Color.DKGRAY
+//        candleDataSet.shadowWidth = 0.8f
+//        candleDataSet.decreasingColor = android.graphics.Color.RED
+//        candleDataSet.increasingColor = android.graphics.Color.GREEN
+//        candleDataSet.decreasingPaintStyle = android.graphics.Paint.Style.FILL
+//        candleDataSet.increasingPaintStyle = android.graphics.Paint.Style.FILL
+//
+//        // Configurar el dataset de volumen
+//        val barDataSet = BarDataSet(volumeEntries, "Volumen")
+//        barDataSet.color = android.graphics.Color.BLUE
+//        barDataSet.axisDependency = YAxis.AxisDependency.RIGHT
+//
+//        // Combinar los datos
+//        val candleData = CandleData(candleDataSet)
+//        val barData = BarData(barDataSet)
+//        val combinedData = CombinedData()
+//        combinedData.setData(candleData)
+//        combinedData.setData(barData)
+//
+//        // Configurar el gráfico combinado
+//        combinedChart.data = combinedData
+//        combinedChart.setDrawGridBackground(false)
+//        combinedChart.setDrawBarShadow(false)
+//        combinedChart.isHighlightPerDragEnabled = true
+//        combinedChart.setScaleEnabled(true)
+//        combinedChart.setPinchZoom(true)
+//
+//        // Configurar el eje X
+//        val xAxis = combinedChart.xAxis
+//        xAxis.position = com.github.mikephil.charting.components.XAxis.XAxisPosition.BOTTOM
+//        xAxis.granularity = 1f
+//        xAxis.valueFormatter = object : ValueFormatter() {
+//            override fun getFormattedValue(value: Float): String {
+//                return "Día ${value.toInt() + 1}" // Ajusta según tus datos
+//            }
+//        }
+//
+//        // Configurar el eje Y izquierdo (para precios)
+//        val yAxisLeft = combinedChart.axisLeft
+//        yAxisLeft.setDrawGridLines(true)
+//
+//        // Configurar el eje Y derecho (para volumen)
+//        val yAxisRight = combinedChart.axisRight
+//        yAxisRight.setDrawGridLines(false)
+//        yAxisRight.valueFormatter = object : ValueFormatter() {
+//            override fun getFormattedValue(value: Float): String {
+//                return "${(value / 1000).toInt()}k"
+//            }
+//        }
+//
+//        combinedChart.invalidate() // Refrescar el gráfico
+//    }
+
+    private fun loadStaticJsonData() {
+        try {
+            // Leer el archivo JSON desde res/raw
+            val inputStream = resources.openRawResource(R.raw.apple)
+            val bufferedReader = BufferedReader(InputStreamReader(inputStream))
+            val jsonString = bufferedReader.use { it.readText() }
+
+            // Parsear el JSON
+            val jsonArray = JSONArray(jsonString)
+            val entries = mutableListOf<CandleEntry>()
+
+            for (i in 0 until jsonArray.length()) {
+                val jsonObject = jsonArray.getJSONObject(i)
+                val date = i.toFloat()
+                val high = jsonObject.getDouble("high").toFloat()
+                val low = jsonObject.getDouble("low").toFloat()
+                val open = jsonObject.getDouble("open").toFloat()
+                val close = jsonObject.getDouble("close").toFloat()
+                entries.add(CandleEntry(date, high, low, open, close))
+            }
+
+            // Configurar la gráfica
+            runOnUiThread {
+                if (entries.isEmpty()) {
+                    val titleTextView = findViewById<TextView>(R.id.titleTextView)
+                    titleTextView.text = "No hay datos disponibles en el JSON"
+                } else {
+                    setupCandleChart(entries)
+                }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+    private fun setupCandleChart(entries: List<CandleEntry>) {
         val candleStickChart = findViewById<CandleStickChart>(R.id.candleStickChart)
 
-        // Datos de ejemplo para la gráfica
-        val entries = listOf(
-            CandleEntry(0f, 220f, 200f, 210f, 205f), // (x, high, low, open, close)
-            CandleEntry(1f, 230f, 210f, 220f, 215f),
-            CandleEntry(2f, 240f, 220f, 230f, 225f),
-            CandleEntry(3f, 250f, 230f, 240f, 235f),
-            CandleEntry(4f, 260f, 240f, 250f, 245f)
-        )
+        // Configurar el dataset de velas
+        val candleDataSet = CandleDataSet(entries, "Historial de Precios")
+        candleDataSet.color = android.graphics.Color.rgb(80, 80, 80)
+        candleDataSet.shadowColor = android.graphics.Color.DKGRAY
+        candleDataSet.shadowWidth = 0.8f
+        candleDataSet.decreasingColor = android.graphics.Color.RED
+        candleDataSet.increasingColor = android.graphics.Color.GREEN
+        candleDataSet.decreasingPaintStyle = android.graphics.Paint.Style.FILL
+        candleDataSet.increasingPaintStyle = android.graphics.Paint.Style.FILL
 
-        // Configura el DataSet
-        val dataSet = CandleDataSet(entries, "Demo CandleStickChart")
-        dataSet.color = Color.rgb(80, 80, 80)
-        dataSet.shadowColor = Color.DKGRAY
-        dataSet.shadowWidth = 0.8f
-        dataSet.decreasingColor = Color.RED
-        dataSet.decreasingPaintStyle = android.graphics.Paint.Style.FILL
-        dataSet.increasingColor = Color.GREEN
-        dataSet.increasingPaintStyle = android.graphics.Paint.Style.FILL
-        dataSet.neutralColor = Color.BLUE
+        // Crear los datos del gráfico
+        val candleData = CandleData(candleDataSet)
+        candleStickChart.data = candleData
 
-        // Configura los datos y asigna al gráfico
-        val data = CandleData(dataSet)
-        candleStickChart.data = data
-
-        // Opcional: Personaliza el gráfico
-        candleStickChart.description.isEnabled = false
-        candleStickChart.setPinchZoom(true)
+        // Configurar el gráfico
         candleStickChart.setDrawGridBackground(false)
+        candleStickChart.setPinchZoom(true)
+        candleStickChart.setScaleEnabled(true)
+        candleStickChart.isHighlightPerDragEnabled = true
 
-        // Refresca el gráfico
+        // Configurar el eje X
+        val xAxis = candleStickChart.xAxis
+        xAxis.position = com.github.mikephil.charting.components.XAxis.XAxisPosition.BOTTOM
+        xAxis.granularity = 1f
+        xAxis.valueFormatter = object : ValueFormatter() {
+            override fun getFormattedValue(value: Float): String {
+                return "Día ${value.toInt() + 1}" // Ajusta según tus datos
+            }
+        }
+
+        // Configurar el eje Y
+        val yAxisLeft = candleStickChart.axisLeft
+        yAxisLeft.setDrawGridLines(true)
+
+        val yAxisRight = candleStickChart.axisRight
+        yAxisRight.setDrawGridLines(false)
+
+        // Refrescar el gráfico
         candleStickChart.invalidate()
-
     }
 }
