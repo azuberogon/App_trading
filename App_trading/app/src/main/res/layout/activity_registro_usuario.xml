@@ -14,6 +14,34 @@
         tools:context=".kotlin.InicioSesion.Registro_usuario">
 
         <TextView
+            android:id="@+id/textView"
+            android:layout_width="112dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="8dp"
+            android:text="Fecha de nacimiento:"
+            app:layout_constraintBottom_toTopOf="@+id/editTextContrasena"
+            app:layout_constraintEnd_toStartOf="@+id/editTextDate"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextApellido"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/editTextDate"
+            android:layout_width="245dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:inputType="date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextApellido" />
+
+        <TextView
             android:id="@+id/registroTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,113 +53,118 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/emailEditText"
+            android:id="@+id/editTxtCorreo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:autofillHints="emailAddress"
             android:hint="@string/enter_email"
             android:inputType="textEmailAddress"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-        <EditText
-            android:id="@+id/nameEditText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:autofillHints="name"
-            android:hint="@string/enter_name"
-            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/editTextApellido"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/emailEditText" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
 
         <EditText
-            android:id="@+id/surnameEditText"
+            android:id="@+id/editTextApellido"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:autofillHints="name"
             android:hint="@string/enter_surname"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/nameEditText" />
+            app:layout_constraintTop_toBottomOf="@+id/editTxtCorreo" />
 
-        <EditText
-            android:id="@+id/birthDateEditText"
+        <Button
+            android:id="@+id/btnCrearCuenta"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:autofillHints="birthDate"
-            android:hint="@string/enter_birth_date"
-            android:inputType="date"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/CrearCuenta"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/surnameEditText" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextConfContrasena" />
 
         <Button
-            android:id="@+id/saveButton"
+            android:id="@+id/btnCancelar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="116dp"
-            android:text="@string/save"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/birthDateEditText" />
-
-        <Button
-            android:id="@+id/Cancelar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
             android:text="@string/cancelar"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/saveButton" />
+            app:layout_constraintTop_toBottomOf="@+id/btnCrearCuenta" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="198dp"
             android:layout_height="167dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="16dp"
             android:src="@drawable/baseline_account_circle_24"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.524"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/registroTitle" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/editTextContrasena"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:ems="10"
             android:hint="@string/contrase_a"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/birthDateEditText" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextDate"
+            tools:ignore="MissingConstraints" />
 
         <EditText
-            android:id="@+id/editTextTextPassword2"
+            android:id="@+id/editTextConfContrasena"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:ems="10"
             android:hint="@string/repite_la_contrase_a"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextContrasena" />
+
+        <EditText
+            android:id="@+id/editTextTextEmailAddress"
+            android:layout_width="361dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

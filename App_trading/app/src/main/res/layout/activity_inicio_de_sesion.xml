@@ -19,7 +19,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/usernameEditText"
+        android:id="@+id/editTextCorreoElectronico"
+
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="144dp"
@@ -32,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@id/userIcon" />
 
     <EditText
-        android:id="@+id/passwordEditText"
+        android:id="@+id/editTextContraseñaCorreo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="116dp"
@@ -42,29 +43,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/usernameEditText" />
+        app:layout_constraintTop_toBottomOf="@id/editTextCorreoElectronico" />
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/btnInicioDeSesion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="168dp"
         android:text="@string/login"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/registerButton"
+        app:layout_constraintEnd_toStartOf="@+id/btnRegistro"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/passwordEditText" />
+        app:layout_constraintTop_toBottomOf="@id/editTextContraseñaCorreo" />
 
     <Button
-        android:id="@+id/registerButton"
+        android:id="@+id/btnRegistro"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/loginButton"
-        app:layout_constraintTop_toTopOf="@+id/loginButton" />
+        app:layout_constraintStart_toEndOf="@+id/btnInicioDeSesion"
+        app:layout_constraintTop_toTopOf="@+id/btnInicioDeSesion" />
 
 
 

@@ -23,7 +23,7 @@
     <string name="app_name">NeoTrade</string>
     <string name="eslogan">El nuevo trading, con visión de futuro</string>
     <string name="user_icon_description">Icono de usuario</string>
-    <string name="enter_username">Introduce el nombre de usuario</string>
+    <string name="enter_username">Introduce el correo electronico</string>
     <string name="enter_password">Introduce la contraseña</string>
     <string name="login">Iniciar sesión</string>
     <string name="register">Registrarse</string>
@@ -37,7 +37,7 @@
     <string name="enter_name">Introduce el nombre</string>
     <string name="enter_surname">Introduce el apellido</string>
     <string name="enter_birth_date">Introduce la fecha de nacimiento</string>
-    <string name="save">Guardar</string>
+    <string name="CrearCuenta">Crear cuenta</string>
     <string name="title_home">Inicio</string>
     <string name="title_dashboard">Panel</string>
     <string name="title_notifications">Notificaciones</string>
@@ -47,5 +47,5 @@
     <string name="cierre">Cierre</string>
     <string name="contrase_a">Contraseña</string>
     <string name="repite_la_contrase_a">Repite la contraseña</string>
-    <string name="cancelar">cancelar</string>
+    <string name="cancelar">Cancelar</string>
 </resources>
