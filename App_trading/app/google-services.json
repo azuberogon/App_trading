@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "657768147964",
+    "project_id": "proyectotfg-9313e",
+    "storage_bucket": "proyectotfg-9313e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:657768147964:android:24362f0c3c45ed22a32079",
+        "android_client_info": {
+          "package_name": "com.example.app_trading"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVwnOUocH4IdV-XLkC0-N0j83_UUcKNXo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

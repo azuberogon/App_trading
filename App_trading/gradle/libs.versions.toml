@@ -9,6 +9,12 @@ appcompat = "1.6.1"
 material = "1.10.0"
 activity = "1.8.0"
 constraintlayout = "2.1.4"
+googleServiceVersion="4.4.2"
+firebaseAuthV="23.2.0"
+fireStoreV="25.1.4"
+firebaSestorageV="21.0.1"
+
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -20,7 +26,12 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 
+firebaseAuth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuthV" }
+firebaseStore = { group = "com.google.firebase", name = "firebase-firestore", version.ref = "fireStoreV" }
+firebaseStorage = { group = "com.google.firebase", name = "firebase-storage", version.ref = "firebaSestorageV" }
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 
+
+googleService={id="com.google.gms.google-services", version.ref="googleServiceVersion"}

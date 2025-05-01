@@ -53,4 +53,5 @@ class Inicio_de_sesion : AppCompatActivity() {
         // Reemplaza esto con tu lógica de autenticación.
         return username == "usuario" && password == "contraseña"
     }
+
 }

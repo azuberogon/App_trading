@@ -3,7 +3,11 @@ import org.jetbrains.dokka.gradle.DokkaTask
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.googleService) apply false
     id("org.jetbrains.dokka") version "1.9.10"
+//    id("com.google.gms.google-services") version "4.4.2" apply false
+
+
 }
 
 android {
@@ -50,6 +54,15 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    //firebase desde libs.versions.toml
+    implementation(libs.firebaseAuth)
+    implementation(libs.firebaseStore)
+    implementation(libs.firebaseStorage)
+//    implementation("com.google.android.material:material:1.9.0")
+//    implementation("androidx.navigation:navigation-fragment-ktx:2.7.2")
+//    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+//    implementation("androidx.recyclerview:recyclerview:1.3.0")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
@@ -60,5 +73,15 @@ dependencies {
     //para que se haga la tabla y poder mostrar datos en graficos
     implementation("com.github.PhilJay:MPAndroidChart:3.1.0")
    // implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+
+
+    //implementation("com.google.firebase:firebase-auth:22.1.1")
+//Firebase tutorial
+    implementation(platform("com.google.firebase:firebase-bom:33.13.0"))
+    //analisis de firebase
+    implementation("com.google.firebase:firebase-analytics")
+    //autenticacion de firebase
+    //implementation("com.google.firebase:firebase-auth:23.2.0")
+
 
 }
