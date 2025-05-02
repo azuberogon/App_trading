@@ -1,27 +1,71 @@
-package com.example.app_trading.kotlin.InicioSesion
+package com.example.app_trading.kotlin.InicioSesion.registroUsuario
 
-import android.content.Intent
-import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.app_trading.MainActivity
-import com.example.app_trading.R
-import com.example.app_trading.kotlin.CRUD.BaseDeDatos.DatabaseHelper
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.storage.FirebaseStorage
 
-class Registro_usuario : AppCompatActivity() {
+class Registro_usuario : AppCompatActivity()  {
+
+    //    private lateinit var imageView: ImageView
 //    private lateinit var firebaseAuth: FirebaseAuth
 //    private lateinit var databaseHelper: DatabaseHelper
 //    private lateinit var firebaseStorage: FirebaseStorage
 //    private lateinit var firebaseStore: FirebaseFirestore
+
+
+/*
+    override fun onCreateView(
+        menuInflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
+        var view = menuInflater.inflate(R.layout.activity_registro_usuario, container, false)
+        val eTxtCorreo = view.findViewById<EditText>(R.id.editTextTextEmailAddress)
+        val eTxtContrasena = view.findViewById<EditText>(R.id.editTextContrasena)
+        val eTxtContrasenaConf = view.findViewById<EditText>(R.id.editTextConfContrasena)
+        val btnCancelar = view.findViewById<Button>(R.id.btnCancelar)
+        val btnCrearCuenta = view.findViewById<Button>(R.id.btnCrearCuenta)
+
+        btnCrearCuenta.setOnClickListener {
+            if (eTxtContrasena.text.toString().isNotEmpty()) {
+                if (eTxtCorreo.text.toString().isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(
+                        eTxtCorreo.text.toString()
+                    ).matches()
+                ) {
+                    eTxtCorreo.error = null // Limpiar el error si el campo no está vacío
+                    crearCuentaFirebase(eTxtCorreo.text.toString(), eTxtContrasena.text.toString())
+                } else {
+                    eTxtCorreo.error = "Campo vacío"
+                    Toast.makeText(
+                        this,
+                        "Formato de correo incorrecto o vacio ",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    return@setOnClickListener // Evita continuar si el campo está vacío
+
+                }
+
+            } else {
+                eTxtContrasena.error = "Campo vacío"
+                Toast.makeText(this, "Porfavor, rellene el campo contraseña", Toast.LENGTH_SHORT)
+                    .show()
+
+                return@setOnClickListener // Evita continuar si el campo está vacío
+            }
+        }
+        return view
+    }
+
+    private fun crearCuentaFirebase(correo: String, contrasena: String) {
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword(correo, contrasena)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+//
+                    var intent = Intent(requireContext(), Registro_usuario::class.java)
+                    intent.putExtra("correo", correo)//putExtra es para pasar datos entre actividades
+                    intent.putExtra("Proveedor", "Usuario/Contraseña")
+                    startActivity(intent)
+
+                } else {
+                    Toast.makeText(requireContext(), "Usuario/Contraseña incorrectos", Toast.LENGTH_SHORT).show()
+
+                }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,7 +87,7 @@ class Registro_usuario : AppCompatActivity() {
         }
 
         // Configurar el botón "Cancelar"
-        findViewById<Button>(R.id.Cancelar).setOnClickListener {
+        btnCancelar.setOnClickListener {
             val intent = Intent(this, Inicio_de_sesion::class.java)
             startActivity(intent)
             finish() // Cierra la actividad actual
@@ -57,12 +101,16 @@ class Registro_usuario : AppCompatActivity() {
                 if (task.isSuccessful) {
 //
                     var intent = Intent(this, MainActivity::class.java)
-                    intent.putExtra("correo", correo)//putExtra es para pasar datos entre actividades
+                    intent.putExtra(
+                        "correo",
+                        correo
+                    )//putExtra es para pasar datos entre actividades
                     intent.putExtra("Proveedor", "Usuario/Contraseña")
                     startActivity(intent)
 
                 } else {
-                    Toast.makeText(this, "Usuario/Contraseña incorrectos", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Usuario/Contraseña incorrectos", Toast.LENGTH_SHORT)
+                        .show()
 
 
 //                    // If sign in fails, display a message to the user.
@@ -77,7 +125,7 @@ class Registro_usuario : AppCompatActivity() {
 
                 }
             }
-
+    }
 
 
 
@@ -134,4 +182,5 @@ class Registro_usuario : AppCompatActivity() {
 //        // al presionar el botón de retroceso
 //        // super.onBackPressed() // Descomentar si deseas permitir el retroceso
 //    }
+*/
 }

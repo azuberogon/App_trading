@@ -1,4 +1,4 @@
-package com.example.app_trading.kotlin.adapter
+package com.example.app_trading.kotlin.Adapter
 
 import android.view.LayoutInflater
 import android.view.View

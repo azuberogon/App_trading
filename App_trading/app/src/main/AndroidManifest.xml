@@ -6,32 +6,41 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".kotlin.FireBase.Firebase"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.App_trading"
-        tools:targetApi="31">
-<!--falta hacer unos retoques en la grafica ya se mirara como hacerlo mejor mas adelante 22/04/2025-->
-        <activity
-            android:name=".graficas_test1"
-            android:exported="true" >
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-        </activity>
+        tools:targetApi="31"
+        >
 
         <activity
-            android:name=".kotlin.InicioSesion.Registro_usuario"
+            android:name=".kotlin.InicioSesion.registroUsuario.NotificacionUsuario"
             android:exported="false" />
         <activity
-            android:name=".kotlin.InicioSesion.Inicio_de_sesion"
-            android:exported="true" >
+            android:name=".kotlin.InicioSesion.registroUsuario.FragmentoRegistro"
+            android:exported="false" />
+        <activity
+            android:name=".graficas_test1"
+            android:exported="false">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name=".kotlin.InicioSesion.registroUsuario.Registro_usuario"
+            android:exported="false" />
+        <activity
+            android:name=".kotlin.InicioSesion.InicioCuenta.Inicio_de_sesion"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,11 +50,13 @@
         <activity
             android:name=".MainActivity"
             android:exported="false">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
     </application>
 

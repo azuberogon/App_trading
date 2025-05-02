@@ -1,25 +1,5 @@
 <resources>
-<!--    <string name="app_name">NeoTrade</string>-->
-<!--    <string name="eslogan">El nuevo trading, con visión de futuro</string>-->
-<!--    <string name="user_icon_description">User Icon</string>-->
-<!--    <string name="enter_username">Enter Username</string>-->
-<!--    <string name="enter_password">Enter Password</string>-->
-<!--    <string name="login">Login</string>-->
-<!--    <string name="register">Register</string>-->
-<!--    <string name="about_link">About</string>-->
-<!--    <string name="register_title">Register</string>-->
-<!--    <string name="enter_new_username">Enter New Username</string>-->
-<!--    <string name="enter_new_password">Enter New Password</string>-->
-<!--    <string name="confirm_register">Confirm Register</string>-->
-<!--    <string name="welcome_message">Welcome!</string>-->
-<!--    <string name="enter_email">Enter Email</string>-->
-<!--    <string name="enter_name">Enter Name</string>-->
-<!--    <string name="enter_surname">Enter Surname</string>-->
-<!--    <string name="enter_birth_date">Enter Birth Date</string>-->
-<!--    <string name="save">Save</string>-->
-<!--    <string name="title_home">Home</string>-->
-<!--    <string name="title_dashboard">Dashboard</string>-->
-<!--    <string name="title_notifications">Notifications</string>-->
+
     <string name="app_name">NeoTrade</string>
     <string name="eslogan">El nuevo trading, con visión de futuro</string>
     <string name="user_icon_description">Icono de usuario</string>
@@ -48,4 +28,22 @@
     <string name="contrase_a">Contraseña</string>
     <string name="repite_la_contrase_a">Repite la contraseña</string>
     <string name="cancelar">Cancelar</string>
+    <string name="title_activity_fragmento_registro">FragmentoRegistro</string>
+    <string name="prompt_email">Email</string>
+    <!--    <string name="prompt_password">Password</string>-->
+    <!--    <string name="action_sign_in">Sign in or register</string>-->
+    <!--    <string name="action_sign_in_short">Sign in</string>-->
+    <string name="welcome">"bien venido!"</string>
+    <!--    <string name="invalid_username">Not a valid username</string>-->
+    <!--    <string name="invalid_password">Password must be >5 characters</string>-->
+    <!--    <string name="login_failed">"Login failed"</string>-->
+    <string name="nombre_completo">Nombre completo</string>
+    <string name="nombre_de_usuario">Nombre de usuario</string>
+    <string name="correo_electronico">Correo electronico</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="iniciar_sesion">Iniciar sesion</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+
 </resources>
