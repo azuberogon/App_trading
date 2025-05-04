@@ -12,9 +12,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.app_trading.MainActivity
 import com.example.app_trading.R
 import com.example.app_trading.kotlin.InicioSesion.registroUsuario.DialogoCrearCuenta
+import com.google.firebase.Firebase
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.auth
 
 
 class Inicio_de_sesion : AppCompatActivity() {
@@ -25,9 +27,9 @@ class Inicio_de_sesion : AppCompatActivity() {
             setContentView(R.layout.activity_inicio_de_sesion)
 
             // Inicializar FirebaseAuth
-            FirebaseApp.initializeApp(this)
-            auth = FirebaseAuth.getInstance()
 
+            auth = Firebase.auth
+            Log.d("Inicio_de_sesion", "FirebaseAuth inicializado")
             // Referencias a los elementos de la interfaz de usuario
             val editTextCorreo = findViewById<EditText>(R.id.editTextCorreoElectronico)
             val editTxtContrasena = findViewById<EditText>(R.id.editTextContraseñaCorreo)
@@ -37,28 +39,49 @@ class Inicio_de_sesion : AppCompatActivity() {
             // Listener para el botón de iniciar sesión
             botonLogueo.setOnClickListener {
                 val email = editTextCorreo.text.toString()
-                val password = editTxtContrasena.text.toString()
+                val pass = editTxtContrasena.text.toString()
 
-                if (password.isNotEmpty()) {
-                    if (email.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                        editTextCorreo.error = null
-                        login_firebase(email, password)
+
+
+                if (email.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    if (pass.isNotEmpty()) {
+                        auth.signInWithEmailAndPassword(email, pass)
+                            .addOnSuccessListener {
+                                Toast.makeText(
+                                    this@Inicio_de_sesion,
+                                    "Inicio de sesión exitoso",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                startActivity(
+                                    Intent(
+                                        this@Inicio_de_sesion,
+                                        MainActivity::class.java
+                                    )
+                                )
+                                finish()
+                            }
+                            .addOnFailureListener {
+                                Toast.makeText(
+                                    this@Inicio_de_sesion,
+                                    "Inicio de sesión fallido",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
                     } else {
-                        editTextCorreo.error = "Formato de correo incorrecto o vacío"
-                        Toast.makeText(this, "Formato de correo incorrecto o vacío", Toast.LENGTH_SHORT).show()
+                        editTxtContrasena.setError("No se permiten campos vacíos")
                     }
+                } else if (email.isEmpty()) {
+                    editTextCorreo.setError("Los campos vacíos no están permitidos")
                 } else {
-                    editTxtContrasena.error = "Campo vacío"
-                    Toast.makeText(this, "Por favor, rellene el campo contraseña", Toast.LENGTH_SHORT).show()
+                    editTextCorreo.setError("Por favor, ingresa un correo electrónico correcto")
+                }
+
+                // Listener para el botón de registro
+                botonRegistro.setOnClickListener {
+                    DialogoCrearCuenta.show(supportFragmentManager, null)
                 }
             }
-
-            // Listener para el botón de registro
-            botonRegistro.setOnClickListener {
-                DialogoCrearCuenta.show(supportFragmentManager, null)
-            }
         }
-
 
     private fun login_firebase(email: String, password: String) {
         auth.signInWithEmailAndPassword(email, password)
