@@ -82,24 +82,25 @@ dependencies {
 
 
     //implementation("com.google.firebase:firebase-auth:22.1.1")
-//Firebase tutorial
+    //Firebase tutorial
     implementation(platform("com.google.firebase:firebase-bom:33.13.0"))
     //analisis de firebase
     implementation("com.google.firebase:firebase-analytics")
     //autenticacion de firebase
     implementation("com.google.firebase:firebase-auth:23.2.0")
-
     // Import the BoM for the Firebase platform
     implementation(platform("com.google.firebase:firebase-bom:33.13.0"))
-
     // Add the dependency for the Firebase Authentication library
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation("com.google.firebase:firebase-auth")
-
-
-
     // Also add the dependency for the Google Play services library and specify its version
     implementation("com.google.android.gms:play-services-auth:21.3.0")
+
+
+    implementation ("com.google.android.material:material:1.10.0")
+    implementation("com.airbnb.android:lottie:6.1.0")
+
+
 
 
 }

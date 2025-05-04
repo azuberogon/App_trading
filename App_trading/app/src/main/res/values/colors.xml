@@ -2,4 +2,24 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+    <color name="primaryDark">#0F172A</color>
+    <color name="primaryLight">#1E293B</color>
+    <color name="accentGreen">#22C55E</color>
+    <color name="dangerRed">#EF4444</color>
+    <color name="gold">#FBBF24</color>
+    <color name="textLight">#F1F5F9</color>
+    <color name="secondaryText">#94A3B8</color>
+    <color name="blueAccent">#3B82F6</color>
+
+
+
+<!--    Usa verde (#22C55E) para mostrar que el valor de una criptomoneda ha subido.-->
+
+<!--    Usa rojo (#EF4444) para las pérdidas.-->
+
+<!--    El azul (#3B82F6) puede servir para botones de acciones como "Comprar", "Vender" o "Ver detalles".-->
+
+<!--    Usa #FBBF24 para destacar íconos de Bitcoin u oro.-->
 </resources>
