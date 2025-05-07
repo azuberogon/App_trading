@@ -13,6 +13,24 @@
     <color name="secondaryText">#94A3B8</color>
     <color name="blueAccent">#3B82F6</color>
 
+    <color name="colorPrimary">#2196F3</color> <!-- Azul principal -->
+    <color name="colorPrimaryVariant">#1976D2</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+
+    <color name="colorSecondary">#FFC107</color> <!-- Amarillo para acentos -->
+    <color name="colorOnSecondary">#000000</color>
+
+    <color name="background">#FAFAFA</color>
+    <color name="onBackground">#212121</color>
+
+    <color name="surface">#FFFFFF</color>
+    <color name="onSurface">#212121</color>
+
+    <color name="error">#D32F2F</color>
+    <color name="onError">#FFFFFF</color>
+<!--modo oscuro-->
+
+
 
 
 <!--    Usa verde (#22C55E) para mostrar que el valor de una criptomoneda ha subido.-->

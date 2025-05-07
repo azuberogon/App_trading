@@ -1,121 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/loginLayout"
     android:background="@color/primaryDark"
     tools:context=".kotlin.InicioSesion.InicioCuenta.Inicio_de_sesion">
 
-    <!-- LOGO -->
     <ImageView
-        android:id="@+id/logoImage"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/ic_"
+        android:id="@+id/logoImageView"
+        android:layout_width="147dp"
+        android:layout_height="158dp"
+        android:layout_marginTop="124dp"
         android:contentDescription="Logo"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintTop_margin="48dp"
+        android:src="@mipmap/ic_logo_round"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
 
-    <!-- TÍTULO -->
     <TextView
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Iniciar Sesión"
+        android:text="@string/iniciar_sesion"
         android:textSize="24sp"
         android:textColor="@color/textLight"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/logoImage"
-        app:layout_constraintTop_margin="24dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- EMAIL -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="370dp"
         android:hint="Correo electrónico"
         app:boxBackgroundColor="@color/primaryLight"
-        app:boxCornerRadiusTopStart="16dp"
-        app:boxCornerRadiusTopEnd="16dp"
-        app:boxCornerRadiusBottomStart="16dp"
         app:boxCornerRadiusBottomEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusTopStart="16dp"
         app:boxStrokeColor="@color/blueAccent"
-        app:layout_constraintTop_toBottomOf="@id/titleText"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/titleText">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/textLight"
-            android:inputType="textEmailAddress"/>
+            android:inputType="textEmailAddress"
+            android:textColor="@color/textLight" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- CONTRASEÑA -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:hint="Contraseña"
         app:boxBackgroundColor="@color/primaryLight"
-        app:boxCornerRadiusTopStart="16dp"
-        app:boxCornerRadiusTopEnd="16dp"
-        app:boxCornerRadiusBottomStart="16dp"
         app:boxCornerRadiusBottomEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusTopStart="16dp"
         app:boxStrokeColor="@color/blueAccent"
-        app:layout_constraintTop_toBottomOf="@id/emailInputLayout"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/emailInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/textLight"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:textColor="@color/textLight" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- BOTÓN LOGIN -->
     <Button
         android:id="@+id/loginButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/accentGreen"
+        android:padding="12dp"
         android:text="Acceder"
         android:textColor="@color/textLight"
-        android:backgroundTint="@color/accentGreen"
-        android:layout_marginTop="24dp"
-        android:padding="12dp"
         app:cornerRadius="24dp"
-        app:layout_constraintTop_toBottomOf="@id/passwordInputLayout"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/passwordInputLayout" />
 
-    <!-- BOTÓN REGISTRO -->
-    <TextView
+    <Button
         android:id="@+id/registerLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="¿No tienes cuenta? Regístrate"
         android:textColor="@color/blueAccent"
         android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@id/loginButton"
-        app:layout_constraintTop_margin="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
+        app:layout_constraintTop_toBottomOf="@id/loginButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

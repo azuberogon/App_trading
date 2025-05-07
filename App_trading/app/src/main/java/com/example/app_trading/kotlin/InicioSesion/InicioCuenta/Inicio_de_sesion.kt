@@ -7,13 +7,15 @@ import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import coil.load
+import coil.transform.CircleCropTransformation
 import com.example.app_trading.MainActivity
 import com.example.app_trading.R
 import com.example.app_trading.kotlin.InicioSesion.registroUsuario.DialogoCrearCuenta
 import com.google.firebase.Firebase
-import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.auth
@@ -31,13 +33,14 @@ class Inicio_de_sesion : AppCompatActivity() {
             auth = Firebase.auth
             Log.d("Inicio_de_sesion", "FirebaseAuth inicializado")
             // Referencias a los elementos de la interfaz de usuario
-            val editTextCorreo = findViewById<EditText>(R.id.editTextCorreoElectronico)
-            val editTxtContrasena = findViewById<EditText>(R.id.editTextContraseñaCorreo)
-            val botonLogueo = findViewById<Button>(R.id.btnCrearCuenta)
-            val botonRegistro = findViewById<Button>(R.id.btnRegistro1)
+            val editTextCorreo = findViewById<EditText>(R.id.editTextEmail)
+            val editTxtContrasena = findViewById<EditText>(R.id.editTextPassword)
+            val botonLogueo = findViewById<Button>(R.id.loginButton)
+            val botonRegistro = findViewById<Button>(R.id.registerLink)
 
             // Listener para el botón de iniciar sesión
             botonLogueo.setOnClickListener {
+
                 val email = editTextCorreo.text.toString()
                 val pass = editTxtContrasena.text.toString()
 
@@ -81,6 +84,19 @@ class Inicio_de_sesion : AppCompatActivity() {
                     DialogoCrearCuenta.show(supportFragmentManager, null)
                 }
             }
+
+            // Dentro de tu Activity o Fragment
+
+            val logoImageView: ImageView = findViewById(R.id.logoImageView)
+
+            // Cargar la imagen con Coil y aplicar la transformación circular
+            logoImageView.load(R.mipmap.ic_logo_round) { // Usamos la función de extensión load
+                transformations(CircleCropTransformation()) // Aplicamos la transformación circular
+            }
+
+
+
+
         }
 
     private fun login_firebase(email: String, password: String) {

@@ -101,6 +101,10 @@ dependencies {
     implementation("com.airbnb.android:lottie:6.1.0")
 
 
+    // Dependencia de Coil
+    implementation("io.coil-kt:coil:2.6.0") // O la última versión estable
+
+
 
 
 }
