@@ -6,7 +6,7 @@ plugins {
 //    alias(libs.plugins.googleService) apply false
     id("org.jetbrains.dokka") version "1.9.10"
     id("com.google.gms.google-services")
-
+    id("kotlin-kapt")
 
 }
 
@@ -104,7 +104,13 @@ dependencies {
     // Dependencia de Coil
     implementation("io.coil-kt:coil:2.6.0") // O la última versión estable
 
+    //gift para el splashScreen
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    kapt("com.github.bumptech.glide:compiler:4.16.0")
 
-
+    implementation "androidx.room:room-runtime:2.5.2"
+    kapt "androidx.room:room-compiler:2.5.2"
 
 }

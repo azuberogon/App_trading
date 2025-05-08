@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun fetchDataFromApi(query: String, callback: (List<busquedasEntity>, String?) -> Unit) {
         val client = OkHttpClient()
-        val url = "https://api.tiingo.com/tiingo/utilities/search?query=$query&token=${Api.TOKEN}"
+        val url = "https://api.tiingo.com/tiingo/utilities/search?query=$query&token=${Api.TOKEN_TINGO}"
         val request = Request.Builder()
             .url(url)
             .addHeader("Content-Type", "application/json")

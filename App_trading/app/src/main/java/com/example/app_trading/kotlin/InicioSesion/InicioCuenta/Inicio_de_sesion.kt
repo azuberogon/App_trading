@@ -36,7 +36,7 @@ class Inicio_de_sesion : AppCompatActivity() {
             val editTextCorreo = findViewById<EditText>(R.id.editTextEmail)
             val editTxtContrasena = findViewById<EditText>(R.id.editTextPassword)
             val botonLogueo = findViewById<Button>(R.id.loginButton)
-            val botonRegistro = findViewById<Button>(R.id.registerLink)
+            val botonRegistro = findViewById<Button>(R.id.btnVCrearCuenta)
 
             // Listener para el botón de iniciar sesión
             botonLogueo.setOnClickListener {
@@ -95,24 +95,28 @@ class Inicio_de_sesion : AppCompatActivity() {
             }
 
 
+            botonRegistro.setOnClickListener {
+                val dialogo = DialogoCrearCuenta()
+                dialogo.show(supportFragmentManager, "DialogoCrearCuenta")
+            }
 
 
         }
-
-    private fun login_firebase(email: String, password: String) {
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    Log.d("Inicio_de_sesion", "signInWithEmail:success")
-                    val user = auth.currentUser
-                    updateUI(user)
-                } else {
-                    Log.w("Inicio_de_sesion", "signInWithEmail:failure", task.exception)
-                    Toast.makeText(this, "Error: Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
-                    updateUI(null)
-                }
-            }
-    }
+//
+//    private fun login_firebase(email: String, password: String) {
+//        auth.signInWithEmailAndPassword(email, password)
+//            .addOnCompleteListener(this) { task ->
+//                if (task.isSuccessful) {
+//                    Log.d("Inicio_de_sesion", "signInWithEmail:success")
+//                    val user = auth.currentUser
+//                    updateUI(user)
+//                } else {
+//                    Log.w("Inicio_de_sesion", "signInWithEmail:failure", task.exception)
+//                    Toast.makeText(this, "Error: Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
+//                    updateUI(null)
+//                }
+//            }
+//    }
     private fun updateUI2(user: FirebaseUser?) {
         if (user != null) {
             // Si el inicio de sesión es exitoso, redirige al usuario a la actividad principal
@@ -125,18 +129,6 @@ class Inicio_de_sesion : AppCompatActivity() {
             Toast.makeText(this, "Por favor, verifica tus credenciales.", Toast.LENGTH_SHORT).show()
         }
     }
-
-    // Esta función es un ejemplo. Debes implementar tu propia lógica de validación.
-    private fun isValidCredentials(username: String, password: String): Boolean {
-        // Reemplaza esto con tu lógica de autenticación.
-        return username == "usuario" && password == "contraseña"
-    }
-
-
-
-
-
-
 
 
     // [START on_start_check_user]
@@ -222,27 +214,6 @@ class Inicio_de_sesion : AppCompatActivity() {
     companion object {
         private const val TAG = "EmailPassword"
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

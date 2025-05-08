@@ -2,7 +2,7 @@ package com.example.app_trading
 
 class Api {
     companion object {
-        const val TOKEN_tingo = "39184e3a30850b9362053181e27f780222ed0077"
+        const val TOKEN_TINGO = "39184e3a30850b9362053181e27f780222ed0077"
         //const val BASE_URL_tingo = "https://www.tiingo.com/"
 
 
