@@ -43,6 +43,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="iniciar_sesion">Iniciar sesion</string>
+    <string name="cuenta">Cuenta</string>
+    <string name="mis_inversiones">Mis inversiones</string>
+    <string name="cantidad">Cantidad</string>
+    <string name="convertir">Convertir</string>
+    <string name="resultado">Resultado:</string>
+    <string name="calculadora">calculadora</string>
+    <string name="busqeda">Busqeda</string>
+    <string name="misiones">Misiones</string>
     <string-array name="idiomas">
         <item>Español</item>
         <item>Inglés</item>

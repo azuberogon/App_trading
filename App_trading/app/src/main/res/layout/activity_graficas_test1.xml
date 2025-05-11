@@ -1,92 +1,87 @@
-<!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:id="@+id/main"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    tools:context=".graficas_test1"-->
-<!--    >-->
-
-<!--    <LinearLayout-->
-<!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:orientation="vertical">-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/titleTextView"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textSize="20sp"-->
-<!--            android:gravity="center"-->
-<!--            android:padding="16dp" />-->
-
-<!--        <com.github.mikephil.charting.charts.CandleStickChart-->
-<!--            android:id="@+id/candleStickChart"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="10dp"-->
-<!--            android:layout_weight="1000" />-->
-
-<!--        <com.github.mikephil.charting.charts.CombinedChart-->
-<!--            android:id="@+id/combinedChart"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="20dp"-->
-<!--            android:layout_weight="2000" />-->
-<!--    </LinearLayout>-->
-<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
-
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    tools:context=".graficas_test1">
+    android:orientation="vertical"
+    android:padding="16dp">
 
+    <!-- Información del punto seleccionado y gráfica de velas -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <!-- Gráfica interactiva -->
+        <TextView
+            android:id="@+id/selectedDataTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Selecciona una vela para ver detalles"
+            android:textSize="16sp"
+            android:padding="8dp" />
+
         <com.github.mikephil.charting.charts.CandleStickChart
             android:id="@+id/candleStickChart"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_marginBottom="16dp" />
-
-        <!-- Botones de Comprar y Vender -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-
-            <Button
-                android:id="@+id/btnComprar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Comprar"
-                android:layout_marginEnd="16dp" />
-
-            <Button
-                android:id="@+id/btnVender"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Vender" />
-        </LinearLayout>
-
-        <!-- Input para comprar acciones (oculto por defecto) -->
-        <EditText
-            android:id="@+id/inputComprar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Número de acciones"
-            android:inputType="number"
-            android:visibility="gone"
-            android:layout_marginTop="16dp" />
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#F5F5F5" />
     </LinearLayout>
-</ScrollView>
+    <TextView
+        android:id="@+id/markerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Texto de marcador"
+        android:visibility="visible" />
+</LinearLayout>
+<!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:fillViewport="true"-->
+<!--    tools:context=".graficas_test1">-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        android:padding="16dp">-->
+
+<!--        &lt;!&ndash; Gráfica interactiva &ndash;&gt;-->
+<!--        <com.github.mikephil.charting.charts.CandleStickChart-->
+<!--            android:id="@+id/candleStickChart"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="300dp"-->
+<!--            android:layout_marginBottom="16dp" />-->
+
+<!--        &lt;!&ndash; Botones de Comprar y Vender &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:gravity="center">-->
+
+<!--            <Button-->
+<!--                android:id="@+id/btnComprar"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Comprar"-->
+<!--                android:layout_marginEnd="16dp" />-->
+
+<!--            <Button-->
+<!--                android:id="@+id/btnVender"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Vender" />-->
+<!--        </LinearLayout>-->
+
+<!--        &lt;!&ndash; Input para comprar acciones (oculto por defecto) &ndash;&gt;-->
+<!--        <EditText-->
+<!--            android:id="@+id/inputComprar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:hint="Número de acciones"-->
+<!--            android:inputType="number"-->
+<!--            android:visibility="gone"-->
+<!--            android:layout_marginTop="16dp" />-->
+<!--    </LinearLayout>-->
+<!--</ScrollView>-->
