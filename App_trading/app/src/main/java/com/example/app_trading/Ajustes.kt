@@ -7,6 +7,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class Ajustes : AppCompatActivity() {
+
+    //Firebase.auth.signOut()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

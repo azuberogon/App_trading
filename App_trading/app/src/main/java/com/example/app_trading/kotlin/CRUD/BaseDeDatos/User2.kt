@@ -1,6 +1,6 @@
 package com.example.app_trading.kotlin.CRUD.BaseDeDatos
 
-data class User (
+data class User2 (
 
     var id: String ?,
     val userId: String,
