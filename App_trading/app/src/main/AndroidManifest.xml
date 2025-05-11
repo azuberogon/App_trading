@@ -21,10 +21,10 @@
             android:name=".Ajustes"
             android:exported="false" />
         <activity
-            android:name=".SplashScreenInicioDesesion"
+            android:name=".kotlin.InicioSesion.SplashScreenInicioDesesion"
             android:exported="false" />
         <activity
-            android:name=".kotlin.InicioSesion.registroUsuario.NotificacionUsuario"
+            android:name=".kotlin.InicioSesion.NotificacionUsuario"
             android:exported="false" />
         <activity
             android:name=".kotlin.InicioSesion.registroUsuario.FragmentoRegistro"
@@ -41,7 +41,7 @@
             <!-- </intent-filter> -->
         </activity>
         <activity
-            android:name=".kotlin.InicioSesion.registroUsuario.Registro_usuario"
+            android:name=".kotlin.InicioSesion.registroUsuario.Cuentac2"
             android:exported="false" />
         <activity
             android:name=".kotlin.InicioSesion.InicioCuenta.Inicio_de_sesion"

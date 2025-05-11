@@ -9,6 +9,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.app_trading.MainActivity
 import com.example.app_trading.R
+import com.example.app_trading.kotlin.CRUD.BaseDeDatos.DatabaseHelper
+import com.example.app_trading.kotlin.CRUD.Entity.User
+import com.example.app_trading.kotlin.CRUD.Entity.Accion
+import com.example.app_trading.kotlin.CRUD.Entity.UsuarioActual
 import com.example.app_trading.kotlin.InicioSesion.registroUsuario.FragmentoRegistro
 import com.google.firebase.auth.FirebaseAuth
 
@@ -34,10 +38,54 @@ class Inicio_de_sesion : AppCompatActivity() {
                 auth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
-                            Log.d("Inicio_de_sesion", "Inicio de sesión exitoso")
-                            val intent = Intent(this, MainActivity::class.java)
-                            startActivity(intent)
-                            finish()
+                            val userId = auth.currentUser?.uid ?: return@addOnCompleteListener
+
+                            fetchUserDataFromFirebase(userId) { user, acciones ->
+                                if (user != null) {
+                                    val dbHelper = DatabaseHelper(this)
+                                    UsuarioActual.usuario = user // Asignar el usuario actual
+                                    val nombreUsuario = UsuarioActual.usuario?.nombre ?: "Invitado"
+                                    Toast.makeText(this, "Bienvenido, $nombreUsuario", Toast.LENGTH_SHORT).show()
+                                    // Guardar usuario en la base de datos local
+                                    dbHelper.insertUser(
+                                        user.nombre,
+                                        user.apellido ?: "",
+                                        user.apellido2 ?: "",
+                                        user.gmail,
+                                        user.password,
+                                        user.fechaNaz,
+                                        user.fechaUpdate,
+                                        user.imageUrl,
+                                        user.dinero,
+                                        user.idAccion,
+
+                                    )
+
+                                    // Guardar acciones en la base de datos local
+                                    acciones.forEach { accion ->
+                                        dbHelper.insertAccion(
+                                            accion.nombre,
+                                            accion.ticker,
+                                            accion.sector,
+                                            accion.pais,
+                                            accion.divisa,
+                                            accion.fechaCreacion,
+                                            accion.fechaUpdate,
+                                            accion.precioAccion,
+                                            accion.precioCompra,
+                                            accion.cantidadAcciones,
+                                            userId.toInt()
+                                        )
+                                    }
+
+                                    Log.d("Inicio_de_sesion", "Datos descargados y guardados localmente")
+                                    val intent = Intent(this, MainActivity::class.java)
+                                    startActivity(intent)
+                                    finish()
+                                } else {
+                                    Toast.makeText(this, "Error al obtener datos del usuario", Toast.LENGTH_SHORT).show()
+                                }
+                            }
                         } else {
                             Log.d("Inicio_de_sesion", "Error: ${task.exception?.message}")
                             Toast.makeText(this, "Error: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
@@ -47,9 +95,49 @@ class Inicio_de_sesion : AppCompatActivity() {
                 Toast.makeText(this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show()
             }
         }
+
         btnCrearCuenta.setOnClickListener {
             val intent = Intent(this, FragmentoRegistro::class.java)
             startActivity(intent)
         }
+
+        val dbHelper = DatabaseHelper(this)
+        val users = dbHelper.getAllUsers()
+        users.forEach { Log.d("User", it.toString()) }
+
+
+
+
+
+
+
+
+    }
+
+    private fun fetchUserDataFromFirebase(userId: String, onComplete: (User?, List<Accion>) -> Unit) {
+        val firestore = com.google.firebase.firestore.FirebaseFirestore.getInstance()
+
+        // Obtener datos del usuario
+        firestore.collection("users").document(userId).get()
+            .addOnSuccessListener { userSnapshot ->
+                val user = userSnapshot.toObject(User::class.java)
+
+                // Obtener las acciones del usuario
+                firestore.collection("acciones")
+                    .whereEqualTo("idUser", userId)
+                    .get()
+                    .addOnSuccessListener { accionesSnapshot ->
+                        val acciones = accionesSnapshot.toObjects(Accion::class.java)
+                        onComplete(user, acciones)
+                    }
+                    .addOnFailureListener { e ->
+                        e.printStackTrace()
+                        onComplete(null, emptyList())
+                    }
+            }
+            .addOnFailureListener { e ->
+                e.printStackTrace()
+                onComplete(null, emptyList())
+            }
     }
 }

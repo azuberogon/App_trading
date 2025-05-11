@@ -1,4 +1,4 @@
-package com.example.app_trading.kotlin.InicioSesion.registroUsuario
+package com.example.app_trading.kotlin.InicioSesion
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
