@@ -40,9 +40,7 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity
-            android:name=".kotlin.InicioSesion.registroUsuario.Cuentac2"
-            android:exported="false" />
+
         <activity
             android:name=".kotlin.InicioSesion.InicioCuenta.Inicio_de_sesion"
             android:exported="true">

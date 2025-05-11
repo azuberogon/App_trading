@@ -1,15 +1,32 @@
 package com.example.app_trading.kotlin.CRUD.Entity
 
+
+
 data class User(
-    val id: Int,
-    val nombre: String,
-    val apellido: String,
-    val apellido2: String,
-    val gmail: String,
-    val password: String,
-    val imageUrl: String,
-    val fechaNaz: String,
-    val fechaUpdate: String,
-    val dinero: Double,
-    val idAccion: Int
-)
+    var id: Int? = null,
+    var nombre: String? = null,
+    var apellido: String? = null,
+    var apellido2: String? = null,
+    var gmail: String? = null,
+    var password: String? = null,
+    var imageUrl: String? = null,
+    var fechaNaz: String? = null,
+    var fechaUpdate: String? = null,
+    var dinero: Double? = null,
+    var idAccion: Int? = null
+) {
+    // Constructor sin argumentos requerido por Firebase
+    constructor() : this(
+        id = null,
+        nombre = null,
+        apellido = null,
+        apellido2 = null,
+        gmail = null,
+        password = null,
+        imageUrl = null,
+        fechaNaz = null,
+        fechaUpdate = null,
+        dinero = null,
+        idAccion = null
+    )
+}

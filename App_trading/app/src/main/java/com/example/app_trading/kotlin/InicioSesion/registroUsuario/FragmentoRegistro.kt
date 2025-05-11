@@ -1,11 +1,13 @@
 package com.example.app_trading.kotlin.InicioSesion.registroUsuario
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.app_trading.R
+import com.example.app_trading.kotlin.InicioSesion.SplashScreenInicioDesesion
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -90,6 +92,8 @@ class FragmentoRegistro : AppCompatActivity() {
                     firestore.collection("users").document(userId).set(userData)
                         .addOnSuccessListener {
                             Toast.makeText(this, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this, SplashScreenInicioDesesion::class.java)
+                            startActivity(intent)
                         }
                         .addOnFailureListener { e ->
                             mostrarError("Error al guardar datos: ${e.message}")

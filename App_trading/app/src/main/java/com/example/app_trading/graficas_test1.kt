@@ -1,26 +1,19 @@
 package com.example.app_trading
 
 import android.os.Bundle
-import android.widget.TextView
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.github.mikephil.charting.charts.CandleStickChart
-import com.github.mikephil.charting.charts.CombinedChart
-import com.github.mikephil.charting.components.YAxis
-import com.github.mikephil.charting.data.BarData
-import com.github.mikephil.charting.data.BarDataSet
-import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.data.CandleData
 import com.github.mikephil.charting.data.CandleDataSet
 import com.github.mikephil.charting.data.CandleEntry
-import com.github.mikephil.charting.data.CombinedData
-import com.github.mikephil.charting.formatter.ValueFormatter
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import org.json.JSONArray
-import java.io.BufferedReader
-import java.io.InputStreamReader
 
 class graficas_test1 : AppCompatActivity() {
+    /*
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_graficas_test1)
@@ -293,5 +286,62 @@ class graficas_test1 : AppCompatActivity() {
 
         // Refrescar el gráfico
         candleStickChart.invalidate()
+    }*/
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_graficas_test1)
+
+        val candleStickChart = findViewById<CandleStickChart>(R.id.candleStickChart)
+        val btnComprar = findViewById<Button>(R.id.btnComprar)
+        val btnVender = findViewById<Button>(R.id.btnVender)
+        val inputComprar = findViewById<EditText>(R.id.inputComprar)
+
+        // Configurar la gráfica
+        setupCandleStickChart(candleStickChart)
+
+        // Mostrar input al pulsar "Comprar"
+        btnComprar.setOnClickListener {
+            inputComprar.visibility = if (inputComprar.visibility == View.GONE) View.VISIBLE else View.GONE
+        }
+
+        // Mostrar diálogo al pulsar "Vender"
+        btnVender.setOnClickListener {
+            showSellDialog()
+        }
+    }
+
+    private fun setupCandleStickChart(chart: CandleStickChart) {
+        val entries = listOf(
+            CandleEntry(0f, 200f, 180f, 190f, 195f),
+            CandleEntry(1f, 210f, 190f, 200f, 205f),
+            CandleEntry(2f, 220f, 200f, 210f, 215f)
+        )
+
+        val dataSet = CandleDataSet(entries, "Historial de Precios")
+        dataSet.decreasingColor = android.graphics.Color.RED
+        dataSet.increasingColor = android.graphics.Color.GREEN
+        dataSet.decreasingPaintStyle = android.graphics.Paint.Style.FILL
+        dataSet.increasingPaintStyle = android.graphics.Paint.Style.FILL
+
+        chart.data = CandleData(dataSet)
+        chart.setPinchZoom(true)
+        chart.isHighlightPerDragEnabled = true
+        chart.invalidate()
+    }
+
+    private fun showSellDialog() {
+        val dialogView = layoutInflater.inflate(R.layout.activity_dialog_sell, null)
+        val inputSell = dialogView.findViewById<EditText>(R.id.inputSell)
+
+        AlertDialog.Builder(this)
+            .setTitle("Vender Acciones")
+            .setView(dialogView)
+            .setPositiveButton("Vender") { _, _ ->
+                val cantidad = inputSell.text.toString()
+                Toast.makeText(this, "Vendiste $cantidad acciones", Toast.LENGTH_SHORT).show()
+            }
+            .setNegativeButton("Cancelar", null)
+            .show()
     }
 }

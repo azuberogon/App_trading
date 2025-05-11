@@ -13,6 +13,7 @@ import com.example.app_trading.kotlin.CRUD.BaseDeDatos.DatabaseHelper
 import com.example.app_trading.kotlin.CRUD.Entity.User
 import com.example.app_trading.kotlin.CRUD.Entity.Accion
 import com.example.app_trading.kotlin.CRUD.Entity.UsuarioActual
+import com.example.app_trading.kotlin.InicioSesion.SplashScreenInicioDesesion
 import com.example.app_trading.kotlin.InicioSesion.registroUsuario.FragmentoRegistro
 import com.google.firebase.auth.FirebaseAuth
 
@@ -48,38 +49,37 @@ class Inicio_de_sesion : AppCompatActivity() {
                                     Toast.makeText(this, "Bienvenido, $nombreUsuario", Toast.LENGTH_SHORT).show()
                                     // Guardar usuario en la base de datos local
                                     dbHelper.insertUser(
-                                        user.nombre,
+                                        user.nombre ?: "", // Proporciona un valor predeterminado si es null
                                         user.apellido ?: "",
                                         user.apellido2 ?: "",
-                                        user.gmail,
-                                        user.password,
-                                        user.fechaNaz,
-                                        user.fechaUpdate,
-                                        user.imageUrl,
-                                        user.dinero,
-                                        user.idAccion,
-
+                                        user.gmail ?: "",
+                                        user.password ?: "",
+                                        user.fechaNaz ?: "",
+                                        user.fechaUpdate ?: "",
+                                        user.imageUrl ?: "",
+                                        user.dinero ?: 0.0, // Proporciona un valor predeterminado para Double
+                                        user.idAccion ?: 0 // Proporciona un valor predeterminado para Int
                                     )
 
                                     // Guardar acciones en la base de datos local
-                                    acciones.forEach { accion ->
-                                        dbHelper.insertAccion(
-                                            accion.nombre,
-                                            accion.ticker,
-                                            accion.sector,
-                                            accion.pais,
-                                            accion.divisa,
-                                            accion.fechaCreacion,
-                                            accion.fechaUpdate,
-                                            accion.precioAccion,
-                                            accion.precioCompra,
-                                            accion.cantidadAcciones,
-                                            userId.toInt()
-                                        )
-                                    }
+//                                    acciones.forEach { accion ->
+//                                        dbHelper.insertAccion(
+//                                            accion.nombre,
+//                                            accion.ticker,
+//                                            accion.sector,
+//                                            accion.pais,
+//                                            accion.divisa,
+//                                            accion.fechaCreacion,
+//                                            accion.fechaUpdate,
+//                                            accion.precioAccion,
+//                                            accion.precioCompra,
+//                                            accion.cantidadAcciones,
+//                                            userId.toInt()
+//                                        )
+//                                    }
 
                                     Log.d("Inicio_de_sesion", "Datos descargados y guardados localmente")
-                                    val intent = Intent(this, MainActivity::class.java)
+                                    val intent = Intent(this, SplashScreenInicioDesesion::class.java)
                                     startActivity(intent)
                                     finish()
                                 } else {
@@ -104,14 +104,6 @@ class Inicio_de_sesion : AppCompatActivity() {
         val dbHelper = DatabaseHelper(this)
         val users = dbHelper.getAllUsers()
         users.forEach { Log.d("User", it.toString()) }
-
-
-
-
-
-
-
-
     }
 
     private fun fetchUserDataFromFirebase(userId: String, onComplete: (User?, List<Accion>) -> Unit) {
