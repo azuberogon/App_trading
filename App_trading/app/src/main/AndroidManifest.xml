@@ -5,6 +5,8 @@
     <!-- Permiso para acceder a Internet -->
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <application
         android:name=".kotlin.FireBase.Firebase"
         android:allowBackup="true"
@@ -33,7 +35,7 @@
             android:name=".kotlin.InicioSesion.registroUsuario.FragmentoRegistro"
             android:exported="false" />
         <activity
-            android:name=".graficas_test1"
+            android:name=".kotlin.extras.GraficasTest1"
             android:exported="true">
 
              <intent-filter>

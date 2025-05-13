@@ -1,25 +1,26 @@
-package com.example.app_trading
+package com.example.app_trading.kotlin.extras
 
 import android.content.Context
+import android.graphics.Color
+import android.graphics.Paint
 import android.os.Bundle
 import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.app_trading.R
 import com.example.app_trading.kotlin.Model.StockPrice
 import com.github.mikephil.charting.charts.CandleStickChart
 import com.github.mikephil.charting.components.MarkerView
 import com.github.mikephil.charting.data.CandleData
 import com.github.mikephil.charting.data.CandleDataSet
 import com.github.mikephil.charting.data.CandleEntry
-import com.github.mikephil.charting.listener.OnChartValueSelectedListener
-import com.github.mikephil.charting.highlight.Highlight
 import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.highlight.Highlight
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener
 import com.github.mikephil.charting.utils.MPPointF
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class graficas_test1 : AppCompatActivity() {
+class GraficasTest1 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,11 +52,11 @@ class graficas_test1 : AppCompatActivity() {
         }
 
         val dataSet = CandleDataSet(entries, "Historial de Precios").apply {
-            decreasingColor = android.graphics.Color.RED
-            increasingColor = android.graphics.Color.GREEN
-            decreasingPaintStyle = android.graphics.Paint.Style.FILL
-            increasingPaintStyle = android.graphics.Paint.Style.FILL
-            shadowColor = android.graphics.Color.DKGRAY
+            decreasingColor = Color.RED
+            increasingColor = Color.GREEN
+            decreasingPaintStyle = Paint.Style.FILL
+            increasingPaintStyle = Paint.Style.FILL
+            shadowColor = Color.DKGRAY
             shadowWidth = 0.8f
         }
 

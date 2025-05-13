@@ -98,7 +98,8 @@ dependencies {
     implementation(libs.androidx.annotation) // Anotaciones que ayudan a detectar errores y mejorar la calidad del código.
     implementation(libs.androidx.lifecycle.livedata.ktx) // Extensiones de Kotlin para LiveData, una clase observable que mantiene un ciclo de vida consciente.
     implementation(libs.androidx.lifecycle.viewmodel.ktx) // Extensiones de Kotlin para ViewModel, que almacena y gestiona datos relacionados con la UI de manera que sobreviven a cambios de configuración.
-    implementation(libs.firebase.database) // Firebase Realtime Database (base de datos NoSQL en tiempo real).
+    implementation(libs.firebase.database)
+    implementation(libs.androidx.work.runtime) // Firebase Realtime Database (base de datos NoSQL en tiempo real).
     // Dependencias de pruebas unitarias (se ejecutan localmente en la JVM)
     testImplementation(libs.junit) // El framework de pruebas unitarias JUnit.
     // Dependencias de pruebas de instrumentación (se ejecutan en un dispositivo o emulador)

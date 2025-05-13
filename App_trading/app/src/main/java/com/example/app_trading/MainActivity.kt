@@ -17,12 +17,13 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import android.os.Handler
 import android.os.Looper
+import com.example.app_trading.kotlin.extras.GraficasTest1
 
 /**
  * [MainActivity] es la pantalla principal de la aplicación.
  * Permite al usuario buscar activos (acciones, etc.) a través de una API
  * y muestra los resultados en un RecyclerView. Al seleccionar un activo,
- * navega a una pantalla de gráficos ([graficas_test1]).
+ * navega a una pantalla de gráficos ([com.example.app_trading.kotlin.extras.GraficasTest1]).
  */
 class MainActivity : AppCompatActivity() {
 
@@ -75,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         // Inicializa el adaptador con la lista y un listener para clics en elementos
         recyclerAdapter = CustomAdapter(fullList) { selectedItem ->
             // Acción al hacer clic en un elemento: iniciar la actividad de gráficos
-            val intent = Intent(this, graficas_test1::class.java)
+            val intent = Intent(this, GraficasTest1::class.java)
             intent.putExtra("name", selectedItem.name) // Pasa el nombre del activo
             intent.putExtra("ticker", selectedItem.ticker) // Pasa el ticker del activo
             startActivity(intent) // Inicia la nueva actividad
