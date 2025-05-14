@@ -14,13 +14,14 @@ import com.google.firebase.auth.FirebaseAuth
 
 class Ajustes : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
+
     //Firebase.auth.signOut()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_ajustes)
 
-            auth = FirebaseAuth.getInstance()
+        auth = FirebaseAuth.getInstance()
         val switchModoOscuro = findViewById<Switch>(R.id.switchModoOscuro)
         val switchNotificaciones = findViewById<Switch>(R.id.switchNotificaciones)
         val spinnerIdioma = findViewById<Spinner>(R.id.spinnerIdioma)
@@ -48,7 +49,6 @@ class Ajustes : AppCompatActivity() {
         }
 
 
-
         // Resaltar el elemento actual (MainActivity)
         bottomNavigationView.selectedItemId = R.id.navigation_busqueda
 
@@ -58,23 +58,34 @@ class Ajustes : AppCompatActivity() {
                     startActivity(Intent(this, MisInversiones::class.java))
                     true
                 }
+
                 R.id.navigation_noticias -> {
                     startActivity(Intent(this, Noticias::class.java))
                     true
                 }
+
                 R.id.navigation_busqueda -> {
                     // Ya estamos en MainActivity, no hacemos nada
                     true
                 }
+
                 R.id.navigation_calculadora -> {
-                    startActivity(Intent(this, com.example.app_trading.kotlin.Conversor.conversorDeDivisas::class.java))
+                    startActivity(
+                        Intent(
+                            this,
+                            com.example.app_trading.kotlin.Conversor.conversorDeDivisas::class.java
+                        )
+                    )
                     true
                 }
-                R.id.navigation_cuenta -> {
+
+                R.id.navigation_Ajustes -> {
                     startActivity(Intent(this, Ajustes::class.java))
                     true
                 }
+
                 else -> false
             }
+        }
     }
 }

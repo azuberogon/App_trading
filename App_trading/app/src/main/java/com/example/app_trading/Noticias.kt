@@ -24,7 +24,7 @@ class Noticias : AppCompatActivity() {
         setContentView(R.layout.activity_noticias)
 
         // Configuración del BottomNavigationView
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.menuNavegacionNoticias)
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.menuNavegacionNoticiasConversor)
         bottomNavigationView.selectedItemId = R.id.navigation_noticias
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {

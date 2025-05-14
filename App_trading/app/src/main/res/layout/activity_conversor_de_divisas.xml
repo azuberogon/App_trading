@@ -50,7 +50,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/menuNavegacionNoticias"
+        android:id="@+id/menuNavegacionNoticiasConversor"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_gravity="bottom"
@@ -66,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="72dp"
         android:text="@string/convertir"
-        app:layout_constraintBottom_toTopOf="@+id/menuNavegacionNoticias"
+        app:layout_constraintBottom_toTopOf="@+id/menuNavegacionNoticiasConversor"
         tools:layout_editor_absoluteX="32dp" />
 
     <EditText
@@ -78,7 +78,7 @@
         android:layout_marginBottom="280dp"
         android:hint="@string/cantidad"
         android:inputType="numberDecimal"
-        app:layout_constraintBottom_toTopOf="@+id/menuNavegacionNoticias"
+        app:layout_constraintBottom_toTopOf="@+id/menuNavegacionNoticiasConversor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
