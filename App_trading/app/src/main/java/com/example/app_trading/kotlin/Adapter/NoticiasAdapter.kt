@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.app_trading.R // Importa tu archivo R
 import coil.load // Importa la función load de Coil
+import com.example.app_trading.Noticias
 import com.example.app_trading.kotlin.CRUD.Entity.Noticia
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -22,7 +23,7 @@ import java.util.TimeZone
  * @property onItemClick El listener que se llama cuando se hace clic en un elemento de la lista.
  */
 class NoticiasAdapter(
-    private val noticias: List<Noticia>,
+    private val noticias: List<Noticias>,
     private val onItemClick: (Noticia) -> Unit // Lambda para manejar clics en elementos
 ) : RecyclerView.Adapter<NoticiasAdapter.NoticiaViewHolder>() {
 

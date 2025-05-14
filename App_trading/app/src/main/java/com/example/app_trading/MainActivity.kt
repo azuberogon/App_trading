@@ -17,11 +17,11 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import android.os.Handler
 import android.os.Looper
-<<<<<<< Updated upstream
+
 import com.example.app_trading.kotlin.extras.GraficasTest1
-=======
+
 import com.google.android.material.bottomnavigation.BottomNavigationView
->>>>>>> Stashed changes
+
 
 /**
  * [MainActivity] es la pantalla principal de la aplicación.
@@ -170,10 +170,6 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
-
-
-
-
     }
 
     /**
