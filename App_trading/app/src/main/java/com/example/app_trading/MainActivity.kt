@@ -17,7 +17,11 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import android.os.Handler
 import android.os.Looper
+<<<<<<< Updated upstream
 import com.example.app_trading.kotlin.extras.GraficasTest1
+=======
+import com.google.android.material.bottomnavigation.BottomNavigationView
+>>>>>>> Stashed changes
 
 /**
  * [MainActivity] es la pantalla principal de la aplicación.
@@ -70,6 +74,7 @@ class MainActivity : AppCompatActivity() {
         // Obtiene referencias a las vistas del layout
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         val searchView = findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView)
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.barra_de_navegacionMain)
 
         // --- Configuración del RecyclerView ---
         recyclerView.layoutManager = LinearLayoutManager(this) // Establece un LayoutManager lineal
@@ -139,6 +144,36 @@ class MainActivity : AppCompatActivity() {
              */
             override fun afterTextChanged(s: Editable?) {}
         })
+
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.inversiones -> {
+                    startActivity(Intent(this, MisInversiones::class.java))
+                    true
+                }
+                R.id.navigation_noticias -> {
+                    startActivity(Intent(this, Noticias::class.java))
+                    true
+                }
+                R.id.navigation_busqueda -> {
+                    // Ya estamos en MainActivity, no hacemos nada
+                    true
+                }
+                R.id.navigation_calculadora -> {
+                    startActivity(Intent(this, com.example.app_trading.kotlin.Conversor.conversorDeDivisas::class.java))
+                    true
+                }
+                R.id.navigation_Ajustes -> {
+                    startActivity(Intent(this, Ajustes::class.java))
+                    true
+                }
+                else -> false
+            }
+        }
+
+
+
+
     }
 
     /**

@@ -51,6 +51,7 @@
     <string name="calculadora">calculadora</string>
     <string name="busqeda">Busqeda</string>
     <string name="misiones">Misiones</string>
+    <string name="noticias">noticias</string>
     <string-array name="idiomas">
         <item>Español</item>
         <item>Inglés</item>

@@ -20,14 +20,25 @@
         android:theme="@style/Theme.App_trading"
         tools:targetApi="31">
         <activity
-            android:name=".conversorDeDivisas"
+            android:name=".Noticias"
+            android:exported="false" />
+        <activity
+            android:name=".kotlin.Conversor.conversorDeDivisas"
             android:exported="false" />
         <activity
             android:name=".Ajustes"
             android:exported="false" />
         <activity
             android:name=".kotlin.InicioSesion.SplashScreenInicioDesesion"
-            android:exported="false" />
+            android:exported="true"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".kotlin.InicioSesion.NotificacionUsuario"
             android:exported="false" />
@@ -35,24 +46,31 @@
             android:name=".kotlin.InicioSesion.registroUsuario.FragmentoRegistro"
             android:exported="false" />
         <activity
+<<<<<<< Updated upstream
             android:name=".kotlin.extras.GraficasTest1"
             android:exported="true">
+=======
+            android:name=".graficas_test1"
+            android:exported="false">
+>>>>>>> Stashed changes
 
-             <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
 
-             <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".kotlin.InicioSesion.InicioCuenta.Inicio_de_sesion"
             android:exported="false">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity> <!-- esta es la ventana principal de la app -->
         <activity
             android:name=".MainActivity"

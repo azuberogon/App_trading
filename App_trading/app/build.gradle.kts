@@ -19,6 +19,7 @@ plugins {
     // Plugin Kotlin KAPT (Kotlin Annotation Processing Tool): Permite usar procesadores de anotaciones
     // escritos en Java o Kotlin con tu código Kotlin. Es necesario para bibliotecas como Room y Glide.
     id("kotlin-kapt")
+    id("kotlin-parcelize") // Permite usar la funcionalidad de parcelización de Kotlin.
 
 }
 

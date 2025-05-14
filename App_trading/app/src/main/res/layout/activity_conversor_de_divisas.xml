@@ -5,7 +5,7 @@
     android:padding="24dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".conversorDeDivisas">
+    tools:context=".kotlin.Conversor.conversorDeDivisas">
 
     <EditText
         android:id="@+id/editCantidad"
@@ -40,4 +40,6 @@
         android:layout_marginTop="24dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
 </LinearLayout>
+

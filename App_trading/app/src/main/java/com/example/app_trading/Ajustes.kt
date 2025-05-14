@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.app_trading.kotlin.InicioSesion.InicioCuenta.Inicio_de_sesion
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 
 class Ajustes : AppCompatActivity() {
@@ -24,6 +25,7 @@ class Ajustes : AppCompatActivity() {
         val switchNotificaciones = findViewById<Switch>(R.id.switchNotificaciones)
         val spinnerIdioma = findViewById<Spinner>(R.id.spinnerIdioma)
         val btnCerrarSesion = findViewById<Button>(R.id.btnCerrarSesion)
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.menuNavegacionAjustes)
 
         btnCerrarSesion.setOnClickListener {
             val builder = androidx.appcompat.app.AlertDialog.Builder(this)
@@ -45,5 +47,34 @@ class Ajustes : AppCompatActivity() {
             dialog.show()
         }
 
+
+
+        // Resaltar el elemento actual (MainActivity)
+        bottomNavigationView.selectedItemId = R.id.navigation_busqueda
+
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.inversiones -> {
+                    startActivity(Intent(this, MisInversiones::class.java))
+                    true
+                }
+                R.id.navigation_noticias -> {
+                    startActivity(Intent(this, Noticias::class.java))
+                    true
+                }
+                R.id.navigation_busqueda -> {
+                    // Ya estamos en MainActivity, no hacemos nada
+                    true
+                }
+                R.id.navigation_calculadora -> {
+                    startActivity(Intent(this, com.example.app_trading.kotlin.Conversor.conversorDeDivisas::class.java))
+                    true
+                }
+                R.id.navigation_cuenta -> {
+                    startActivity(Intent(this, Ajustes::class.java))
+                    true
+                }
+                else -> false
+            }
     }
 }
