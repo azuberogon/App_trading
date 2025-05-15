@@ -1,8 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context=".Ventas">
 
     <EditText
         android:id="@+id/inputSell"
@@ -10,4 +12,9 @@
         android:layout_height="wrap_content"
         android:hint="Número de acciones"
         android:inputType="number" />
+    <Button
+        android:id="@+id/btnConfirmSell"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vender" />
 </LinearLayout>

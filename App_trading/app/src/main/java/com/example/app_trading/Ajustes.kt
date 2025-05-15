@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.Switch
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.example.app_trading.kotlin.CRUD.BaseDeDatos.DatabaseHelper
 import com.example.app_trading.kotlin.InicioSesion.InicioCuenta.Inicio_de_sesion
 import com.example.app_trading.kotlin.extras.Noticias
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -28,7 +30,12 @@ class Ajustes : AppCompatActivity() {
         val spinnerIdioma = findViewById<Spinner>(R.id.spinnerIdioma)
         val btnCerrarSesion = findViewById<Button>(R.id.btnCerrarSesion)
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.menuNavegacionAjustes)
-
+        // Ajustes.kt
+        val dbHelper = DatabaseHelper(this)
+        val usuarios = dbHelper.getAllUsers()
+        val usuarioActual = usuarios.firstOrNull() // O usa el id del usuario logueado
+        val dineroTextView = findViewById<TextView>(R.id.textViewDineroTotal)
+        dineroTextView.text = "Dinero total: ${usuarioActual?.dinero ?: 0.0} €"
         btnCerrarSesion.setOnClickListener {
             val builder = androidx.appcompat.app.AlertDialog.Builder(this)
             builder.setTitle("Confirmar cierre de sesión")

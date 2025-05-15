@@ -22,6 +22,15 @@
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
             android:paddingBottom="16dp"/>
+        <TextView
+            android:id="@+id/textViewDineroTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ajustes"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="16dp"/>
 
         <!-- Ejemplo de ajustes -->
         <Switch

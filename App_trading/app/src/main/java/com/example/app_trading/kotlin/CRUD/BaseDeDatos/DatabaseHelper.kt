@@ -292,25 +292,54 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     fun getAllInversiones(): List<Inversion> {
         val db = this.readableDatabase
         val inversiones = mutableListOf<Inversion>()
-        val cursor = db.rawQuery("SELECT nombre, cantidadAcciones, fechaCreacion FROM Accion", null)
+        val cursor = db.rawQuery("SELECT id, nombre, cantidadAcciones, fechaCreacion FROM Accion", null)
         if (cursor.moveToFirst()) {
             do {
+                val id = cursor.getInt(cursor.getColumnIndexOrThrow("id"))
                 val nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre"))
                 val cantidad = cursor.getInt(cursor.getColumnIndexOrThrow("cantidadAcciones")).toDouble()
                 val fecha = cursor.getString(cursor.getColumnIndexOrThrow("fechaCreacion"))
-                inversiones.add(Inversion(nombre, cantidad, fecha))
+                inversiones.add(Inversion(id, nombre, cantidad, fecha))
             } while (cursor.moveToNext())
         }
         cursor.close()
         return inversiones
     }
-    fun poblarInversionesDemo(idUser: Int = 1) {
+    fun poblarDatosDemo() {
         val db = this.readableDatabase
-        val cursor = db.rawQuery("SELECT COUNT(*) FROM Accion", null)
+        // Comprobar si ya hay usuarios
+        val cursor = db.rawQuery("SELECT COUNT(*) FROM User", null)
         cursor.moveToFirst()
         val count = cursor.getInt(0)
         cursor.close()
         if (count == 0) {
+            // Insertar usuarios demo
+            val idUser1 = insertUser(
+                nombre = "Juan",
+                apellido = "Pérez",
+                apellido2 = "García",
+                gmail = "juan.perez@gmail.com",
+                password = "123456",
+                imageUrl = "",
+                fechaNaz = "1990-01-01",
+                fechaUpdate = "2024-06-01",
+                dinero = 10000.0,
+                idAccion = null
+            ).toInt()
+            val idUser2 = insertUser(
+                nombre = "Ana",
+                apellido = "López",
+                apellido2 = "Martínez",
+                gmail = "ana.lopez@gmail.com",
+                password = "abcdef",
+                imageUrl = "",
+                fechaNaz = "1985-05-10",
+                fechaUpdate = "2024-06-01",
+                dinero = 15000.0,
+                idAccion = null
+            ).toInt()
+
+            // Insertar acciones demo para cada usuario
             insertAccion(
                 nombre = "Apple Inc.",
                 ticker = "AAPL",
@@ -322,7 +351,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 precioAccion = 180.0,
                 precioCompra = 170.0,
                 cantidadAcciones = 10,
-                idUser = idUser
+                idUser = idUser1
             )
             insertAccion(
                 nombre = "Santander",
@@ -335,7 +364,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 precioAccion = 3.5,
                 precioCompra = 3.2,
                 cantidadAcciones = 50,
-                idUser = idUser
+                idUser = idUser1
             )
             insertAccion(
                 nombre = "Tesla",
@@ -348,8 +377,67 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 precioAccion = 700.0,
                 precioCompra = 650.0,
                 cantidadAcciones = 5,
-                idUser = idUser
+                idUser = idUser2
+            )
+            insertAccion(
+                nombre = "BBVA",
+                ticker = "BBVA",
+                sector = "Banca",
+                pais = "España",
+                divisa = "EUR",
+                fechaCreacion = "2024-05-20",
+                fechaUpdate = "2024-05-20",
+                precioAccion = 6.0,
+                precioCompra = 5.5,
+                cantidadAcciones = 30,
+                idUser = idUser2
             )
         }
+
+    }
+    fun actualizarCantidadAcciones(idAccion: Int, nuevaCantidad: Int) {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put("cantidadAcciones", nuevaCantidad)
+        db.update("Accion", values, "id = ?", arrayOf(idAccion.toString()))
+    }
+
+    fun actualizarDineroUsuario(idUser: Int, nuevoDinero: Double) {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put("dinero", nuevoDinero)
+        db.update("User", values, "id = ?", arrayOf(idUser.toString()))
+    }
+
+
+    fun getAccionById(id: Int): Accion? {
+        val db = this.readableDatabase
+        val cursor = db.rawQuery("SELECT * FROM Accion WHERE id = ?", arrayOf(id.toString()))
+        var accion: Accion? = null
+        if (cursor.moveToFirst()) {
+            accion = Accion(
+                id = cursor.getInt(cursor.getColumnIndexOrThrow("id")),
+                nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre")),
+                ticker = cursor.getString(cursor.getColumnIndexOrThrow("ticker")),
+                sector = cursor.getString(cursor.getColumnIndexOrThrow("sector")),
+                pais = cursor.getString(cursor.getColumnIndexOrThrow("pais")),
+                divisa = cursor.getString(cursor.getColumnIndexOrThrow("divisa")),
+                fechaCreacion = cursor.getString(cursor.getColumnIndexOrThrow("fechaCreacion")),
+                fechaUpdate = cursor.getString(cursor.getColumnIndexOrThrow("fechaUpdate")),
+                precioAccion = cursor.getDouble(cursor.getColumnIndexOrThrow("precioAccion")),
+                precioCompra = cursor.getDouble(cursor.getColumnIndexOrThrow("precioCompra")),
+                cantidadAcciones = cursor.getInt(cursor.getColumnIndexOrThrow("cantidadAcciones")),
+                idUser = cursor.getInt(cursor.getColumnIndexOrThrow("idUser"))
+            )
+        }
+        cursor.close()
+        return accion
+    }
+
+    fun borrarBaseDeDatos() {
+        val db = this.writableDatabase
+        db.execSQL("DELETE FROM Accion")
+        db.execSQL("DELETE FROM User")
+        // Si tienes más tablas, agrégalas aquí
     }
 }

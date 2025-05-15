@@ -25,7 +25,11 @@ class MisInversiones : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewInversiones)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
-        recyclerView.adapter = InversionesAdapter(listaInversiones)
+        recyclerView.adapter = InversionesAdapter(listaInversiones) { idAccion ->
+            val intent = Intent(this, Ventas::class.java)
+            intent.putExtra("idAccion", idAccion)
+            startActivity(intent)
+        }
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.menuNavegacionMisInversiones)
         bottomNavigationView.selectedItemId = R.id.inversiones

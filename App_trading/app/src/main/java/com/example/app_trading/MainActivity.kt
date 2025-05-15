@@ -17,6 +17,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import android.os.Handler
 import android.os.Looper
+import com.example.app_trading.kotlin.CRUD.BaseDeDatos.DatabaseHelper
 import com.example.app_trading.kotlin.extras.Api
 
 import com.example.app_trading.kotlin.extras.GraficasTest1
@@ -183,6 +184,19 @@ class MainActivity : AppCompatActivity() {
                 }
                 else -> false
             }
+        }
+        val dbHelper = DatabaseHelper(this)
+        //dbHelper.poblarDatosDemo()
+//        dbHelper.borrarBaseDeDatos()
+//        dbHelper.poblarDatosDemo()
+        // Justo después de poblar la base de datos demo
+
+
+
+        // Asigna el primer usuario como usuario actual (ajusta según tu lógica de login)
+        val usuarios = dbHelper.getAllUsers()
+        if (usuarios.isNotEmpty()) {
+            com.example.app_trading.kotlin.CRUD.Entity.UsuarioActual.usuario = usuarios.first()
         }
     }
 

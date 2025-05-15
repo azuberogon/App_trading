@@ -9,8 +9,10 @@ import com.example.app_trading.R
 import com.example.app_trading.kotlin.CRUD.Entity.Inversion
 import java.text.DecimalFormat
 
-class InversionesAdapter(private val inversiones: List<Inversion>) :
-    RecyclerView.Adapter<InversionesAdapter.InversionViewHolder>() {
+class InversionesAdapter(
+    private val inversiones: List<Inversion>,
+    private val onItemClick: (Int) -> Unit // idAccion
+) : RecyclerView.Adapter<InversionesAdapter.InversionViewHolder>() {
 
     class InversionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nombre: TextView = itemView.findViewById(R.id.textViewNombre)
@@ -31,6 +33,9 @@ class InversionesAdapter(private val inversiones: List<Inversion>) :
         holder.nombre.text = inversion.nombre
         holder.cantidad.text = "Cantidad: $formattedCantidad"
         holder.fecha.text = "Fecha: ${inversion.fecha}"
+        holder.itemView.setOnClickListener {
+            onItemClick(inversion.idInversiones) // Llama a la función con el idAccion
+        }
     }
 
     override fun getItemCount(): Int = inversiones.size

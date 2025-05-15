@@ -1,34 +1,54 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-    <!-- Información del punto seleccionado y gráfica de velas -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+                    <!-- Información del punto seleccionado y gráfica de velas -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/selectedDataTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Selecciona una vela para ver detalles"
-            android:textSize="16sp"
-            android:padding="8dp" />
+                        <TextView
+                            android:id="@+id/selectedDataTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Selecciona una vela para ver detalles"
+                            android:textSize="16sp"
+                            android:padding="8dp" />
 
-        <com.github.mikephil.charting.charts.CandleStickChart
-            android:id="@+id/candleStickChart"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="#F5F5F5" />
-    </LinearLayout>
-    <TextView
-        android:id="@+id/markerTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Texto de marcador"
-        android:visibility="visible" />
-</LinearLayout>
+                        <com.github.mikephil.charting.charts.CandleStickChart
+                            android:id="@+id/candleStickChart"
+                            android:layout_width="match_parent"
+                            android:layout_height="573dp"
+                            android:layout_weight="1"
+                            android:background="#F5F5F5" />
+                    </LinearLayout>
+
+    <!-- Fila para cantidad y botón -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="8dp">
+
+                        <EditText
+                            android:id="@+id/inputCantidad1"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:hint="Cantidad"
+                            android:inputType="number"
+                            android:padding="8dp"
+                            android:layout_marginEnd="8dp" />
+
+                        <Button
+                            android:id="@+id/btnComprar1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Comprar" />
+                    </LinearLayout>
+                </LinearLayout>

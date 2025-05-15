@@ -44,7 +44,7 @@
         <activity
 
             android:name=".kotlin.extras.GraficasTest1"
-            android:exported="true">
+            android:exported="false">
 
 <!--            android:name=".graficas_test1"-->
 <!--            android:exported="false">-->
@@ -59,17 +59,6 @@
         </activity>
         <activity
             android:name=".kotlin.InicioSesion.InicioCuenta.Inicio_de_sesion"
-            android:exported="false">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-        </activity> <!-- esta es la ventana principal de la app -->
-        <activity
-            android:name=".MainActivity"
             android:exported="true">
 
              <intent-filter>
@@ -78,6 +67,17 @@
 
              <category android:name="android.intent.category.LAUNCHER" />
              </intent-filter>
+        </activity> <!-- esta es la ventana principal de la app -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false">
+
+<!--             <intent-filter>-->
+<!--             <action android:name="android.intent.action.MAIN" />-->
+
+
+<!--             <category android:name="android.intent.category.LAUNCHER" />-->
+<!--             </intent-filter>-->
         </activity>
 
         <activity android:name=".MisInversiones"
@@ -87,6 +87,13 @@
 <!--                <category android:name="android.intent.category.LAUNCHER" />-->
 <!--            </intent-filter>-->
 
+        </activity>
+        <activity android:name="Ventas"
+            android:exported="false">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+        <!--            </intent-filter>-->
         </activity>
     </application>
 
