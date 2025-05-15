@@ -11,7 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.app_trading.Ajustes
 import com.example.app_trading.MisInversiones
-import com.example.app_trading.Noticias
+import com.example.app_trading.kotlin.extras.Noticias
 import com.example.app_trading.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -35,7 +35,7 @@ class conversorDeDivisas : AppCompatActivity() {
         val resultadoTexto = findViewById<TextView>(R.id.resultadoTexto)
 
         val monedas = tasasConversion.keys.toTypedArray()
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.menuNavegacion)
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.menuNavegacionNoticiasConversor)
 
         // Resaltar el elemento actual (MainActivity)
         bottomNavigationView.selectedItemId = R.id.navigation_busqueda

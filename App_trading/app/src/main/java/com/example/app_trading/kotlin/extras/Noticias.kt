@@ -1,4 +1,4 @@
-package com.example.app_trading
+package com.example.app_trading.kotlin.extras
 
 import android.content.Intent
 import android.net.Uri
@@ -8,8 +8,14 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.app_trading.Ajustes
+import com.example.app_trading.MainActivity
+import com.example.app_trading.MisInversiones
+import com.example.app_trading.R
 import com.example.app_trading.kotlin.Adapter.NoticiasAdapter
+import com.example.app_trading.kotlin.CRUD.Entity.Noticia
 import com.example.app_trading.kotlin.CRUD.service.FinnhubService
+import com.example.app_trading.kotlin.Conversor.conversorDeDivisas
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import retrofit2.Call
 import retrofit2.Callback
@@ -24,7 +30,7 @@ class Noticias : AppCompatActivity() {
         setContentView(R.layout.activity_noticias)
 
         // Configuración del BottomNavigationView
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.menuNavegacionNoticiasConversor)
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.menuNavegacionNoticias)
         bottomNavigationView.selectedItemId = R.id.navigation_noticias
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
@@ -37,7 +43,7 @@ class Noticias : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_calculadora -> {
-                    startActivity(Intent(this, com.example.app_trading.kotlin.Conversor.conversorDeDivisas::class.java))
+                    startActivity(Intent(this, conversorDeDivisas::class.java))
                     true
                 }
                 R.id.navigation_Ajustes -> {
@@ -59,10 +65,12 @@ class Noticias : AppCompatActivity() {
             .build()
 
         val service = retrofit.create(FinnhubService::class.java)
-        val call = service.getGeneralNews(token = "TU_API_KEY")
+        val call = service.getGeneralNews(token = Api.Companion.TOKEN_finnhub)
 
-        call.enqueue(object : Callback<List<Noticias>> {
-            override fun onResponse(call: Call<List<Noticias>>, response: Response<List<Noticias>>) {
+
+
+        call.enqueue(object : Callback<List<Noticia>> {
+            override fun onResponse(call: Call<List<Noticia>>, response: Response<List<Noticia>>) {
                 if (response.isSuccessful) {
                     val newsList = response.body() ?: emptyList()
                     val noticiasAdapter = NoticiasAdapter(newsList) { noticia ->
@@ -70,7 +78,11 @@ class Noticias : AppCompatActivity() {
                             val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(noticia.url))
                             startActivity(browserIntent)
                         } catch (e: Exception) {
-                            Toast.makeText(this@Noticias, "No se pudo abrir la URL", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                this@Noticias,
+                                "No se pudo abrir la URL",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
                     recyclerView.adapter = noticiasAdapter
@@ -78,7 +90,7 @@ class Noticias : AppCompatActivity() {
                     Log.e("Noticias", "Error: ${response.code()}")
                 }
             }
-            override fun onFailure(call: Call<List<Noticias>>, t: Throwable) {
+            override fun onFailure(call: Call<List<Noticia>>, t: Throwable) {
                 Log.e("Noticias", "Fallo de conexión: ${t.message}")
             }
         })

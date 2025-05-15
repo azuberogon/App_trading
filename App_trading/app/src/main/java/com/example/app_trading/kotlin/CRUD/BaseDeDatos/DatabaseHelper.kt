@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.example.app_trading.kotlin.CRUD.Entity.Accion
+import com.example.app_trading.kotlin.CRUD.Entity.Inversion
 import com.example.app_trading.kotlin.CRUD.Entity.User
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -284,5 +285,71 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         }
         cursor.close() // Cierra el cursor para liberar recursos
         return users // Devuelve la lista de usuarios
+    }
+
+
+
+    fun getAllInversiones(): List<Inversion> {
+        val db = this.readableDatabase
+        val inversiones = mutableListOf<Inversion>()
+        val cursor = db.rawQuery("SELECT nombre, cantidadAcciones, fechaCreacion FROM Accion", null)
+        if (cursor.moveToFirst()) {
+            do {
+                val nombre = cursor.getString(cursor.getColumnIndexOrThrow("nombre"))
+                val cantidad = cursor.getInt(cursor.getColumnIndexOrThrow("cantidadAcciones")).toDouble()
+                val fecha = cursor.getString(cursor.getColumnIndexOrThrow("fechaCreacion"))
+                inversiones.add(Inversion(nombre, cantidad, fecha))
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        return inversiones
+    }
+    fun poblarInversionesDemo(idUser: Int = 1) {
+        val db = this.readableDatabase
+        val cursor = db.rawQuery("SELECT COUNT(*) FROM Accion", null)
+        cursor.moveToFirst()
+        val count = cursor.getInt(0)
+        cursor.close()
+        if (count == 0) {
+            insertAccion(
+                nombre = "Apple Inc.",
+                ticker = "AAPL",
+                sector = "Tecnología",
+                pais = "EEUU",
+                divisa = "USD",
+                fechaCreacion = "2024-05-15",
+                fechaUpdate = "2024-05-15",
+                precioAccion = 180.0,
+                precioCompra = 170.0,
+                cantidadAcciones = 10,
+                idUser = idUser
+            )
+            insertAccion(
+                nombre = "Santander",
+                ticker = "SAN",
+                sector = "Banca",
+                pais = "España",
+                divisa = "EUR",
+                fechaCreacion = "2024-05-10",
+                fechaUpdate = "2024-05-10",
+                precioAccion = 3.5,
+                precioCompra = 3.2,
+                cantidadAcciones = 50,
+                idUser = idUser
+            )
+            insertAccion(
+                nombre = "Tesla",
+                ticker = "TSLA",
+                sector = "Automoción",
+                pais = "EEUU",
+                divisa = "USD",
+                fechaCreacion = "2024-05-12",
+                fechaUpdate = "2024-05-12",
+                precioAccion = 700.0,
+                precioCompra = 650.0,
+                cantidadAcciones = 5,
+                idUser = idUser
+            )
+        }
     }
 }

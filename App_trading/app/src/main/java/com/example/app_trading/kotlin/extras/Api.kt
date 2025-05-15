@@ -1,4 +1,4 @@
-package com.example.app_trading
+package com.example.app_trading.kotlin.extras
 
 class Api {
     companion object {

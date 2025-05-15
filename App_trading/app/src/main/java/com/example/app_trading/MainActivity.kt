@@ -17,8 +17,10 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import android.os.Handler
 import android.os.Looper
+import com.example.app_trading.kotlin.extras.Api
 
 import com.example.app_trading.kotlin.extras.GraficasTest1
+import com.example.app_trading.kotlin.extras.Noticias
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -148,11 +150,17 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.inversiones -> {
-                    startActivity(Intent(this, MisInversiones::class.java))
+                    if (this !is MisInversiones) {
+                        startActivity(Intent(this, MisInversiones::class.java))
+                        finish()
+                    }
                     true
                 }
                 R.id.navigation_noticias -> {
-                    startActivity(Intent(this, Noticias::class.java))
+                    if (this !is Noticias) {
+                        startActivity(Intent(this, Noticias::class.java))
+                        finish()
+                    }
                     true
                 }
                 R.id.navigation_busqueda -> {
@@ -160,11 +168,17 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_calculadora -> {
-                    startActivity(Intent(this, com.example.app_trading.kotlin.Conversor.conversorDeDivisas::class.java))
+                    if (this !is com.example.app_trading.kotlin.Conversor.conversorDeDivisas) {
+                        startActivity(Intent(this, com.example.app_trading.kotlin.Conversor.conversorDeDivisas::class.java))
+                        finish()
+                    }
                     true
                 }
                 R.id.navigation_Ajustes -> {
-                    startActivity(Intent(this, Ajustes::class.java))
+                    if (this !is Ajustes) {
+                        startActivity(Intent(this, Ajustes::class.java))
+                        finish()
+                    }
                     true
                 }
                 else -> false
