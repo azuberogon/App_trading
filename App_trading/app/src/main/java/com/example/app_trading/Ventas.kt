@@ -1,3 +1,4 @@
+
 package com.example.app_trading
 
 import android.os.Bundle
@@ -29,7 +30,6 @@ class Ventas : AppCompatActivity() {
             Toast.makeText(this, "Usuario asignado: ${usuario.nombre}, ID: ${usuario.id}", Toast.LENGTH_SHORT).show()
         }
 
-
         val TAG = "UsuarioDebug"
 
         if (usuario == null || usuario.id == null) {
@@ -41,18 +41,26 @@ class Ventas : AppCompatActivity() {
         btnConfirmSell.setOnClickListener {
             val cantidadAVender = inputSell.text.toString().toIntOrNull() ?: 0
             if (cantidadAVender > 0 && accion != null && usuario != null) {
-                Toast.makeText(this, "Tienes ${accion.cantidadAcciones} acciones", Toast.LENGTH_SHORT).show()
-                if (accion.cantidadAcciones >= cantidadAVender) {
-                    val nuevoTotalAcciones = accion.cantidadAcciones - cantidadAVender
-                    val dineroGanado = cantidadAVender * accion.precioAccion
+                val cantidadAcciones = accion.cantidadAcciones ?: 0
+                val precioAccion = accion.precioAccion ?: 0.0
+                val idAccionLocal = accion.id ?: -1
+                val idUsuarioLocal = usuario.id ?: -1
+
+                Toast.makeText(this, "Tienes $cantidadAcciones acciones", Toast.LENGTH_SHORT).show()
+                if (cantidadAcciones >= cantidadAVender) {
+                    val nuevoTotalAcciones = cantidadAcciones - cantidadAVender
+                    val dineroGanado = cantidadAVender * precioAccion
                     val nuevoDineroUsuario = (usuario.dinero ?: 0.0) + dineroGanado
 
-                    dbHelper.actualizarCantidadAcciones(accion.id, nuevoTotalAcciones)
-                    dbHelper.actualizarDineroUsuario(usuario.id ?: 0, nuevoDineroUsuario)
+                    // Aquí va la lógica de eliminar o actualizar
+                    if (nuevoTotalAcciones == 0) {
+                        dbHelper.eliminarAccion(idAccionLocal)
+                    } else {
+                        dbHelper.actualizarCantidadAcciones(idAccionLocal, nuevoTotalAcciones)
+                    }
+                    dbHelper.actualizarDineroUsuario(idUsuarioLocal, nuevoDineroUsuario)
 
-                    val accionActualizada = dbHelper.getAccionById(accion.id)
-                    Toast.makeText(this, "Ahora tienes ${accionActualizada?.cantidadAcciones} acciones", Toast.LENGTH_SHORT).show()
-
+                    Toast.makeText(this, "Venta realizada", Toast.LENGTH_SHORT).show()
                     finish()
                 } else {
                     Toast.makeText(this, "No tienes suficientes acciones", Toast.LENGTH_SHORT).show()

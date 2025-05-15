@@ -188,5 +188,5 @@ class Inicio_de_sesion : AppCompatActivity() {
         )
     }
 
-    
+
 }

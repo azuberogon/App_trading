@@ -10,7 +10,7 @@ import com.example.app_trading.kotlin.CRUD.Entity.Inversion
 import java.text.DecimalFormat
 
 class InversionesAdapter(
-    private val inversiones: List<Inversion>,
+    internal var inversiones: List<Inversion>,
     private val onItemClick: (Int) -> Unit // idAccion
 ) : RecyclerView.Adapter<InversionesAdapter.InversionViewHolder>() {
 
@@ -37,6 +37,9 @@ class InversionesAdapter(
             onItemClick(inversion.idInversiones) // Llama a la función con el idAccion
         }
     }
-
+fun updateData(newList: List<Inversion>) {
+    this.inversiones = newList
+    notifyDataSetChanged()
+}
     override fun getItemCount(): Int = inversiones.size
 }

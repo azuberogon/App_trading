@@ -65,4 +65,16 @@ class MisInversiones : AppCompatActivity() {
         //dbHelper.poblarInversionesDemo() // Pobla si está vacío
 
     }
+
+    override fun onResume() {
+        super.onResume()
+        val dbHelper = DatabaseHelper(this)
+        val listaInversiones = dbHelper.getAllInversiones().filter { it.cantidad > 0 }
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewInversiones)
+        (recyclerView.adapter as? InversionesAdapter)?.updateData(listaInversiones)
+    }
+    fun InversionesAdapter.updateData(newData: List<Inversion>) {
+        this.inversiones = newData
+        notifyDataSetChanged()
+    }
 }

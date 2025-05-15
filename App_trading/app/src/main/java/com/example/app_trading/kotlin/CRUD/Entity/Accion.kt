@@ -1,16 +1,18 @@
 package com.example.app_trading.kotlin.CRUD.Entity
 
-data class Accion(
-    val id: Int,
-    val nombre: String,
-    val ticker: String,
-    val sector: String,
-    val pais: String,
-    val divisa: String,
-    val fechaCreacion: String,
-    val fechaUpdate: String,
-    val precioAccion: Double,
-    val precioCompra: Double,
-    val cantidadAcciones: Int,
-    val idUser: Int
-)
+
+
+    data class Accion(
+        var id: Int? = null,
+        var nombre: String? = null,
+        var ticker: String? = null,
+        var sector: String? = null,
+        var pais: String? = null,
+        var divisa: String? = null,
+        var fechaCreacion: String? = null,
+        var fechaUpdate: String? = null,
+        var precioAccion: Double? = null,
+        var precioCompra: Double? = null,
+        var cantidadAcciones: Int? = null,
+        var idUser: String? = null
+    )

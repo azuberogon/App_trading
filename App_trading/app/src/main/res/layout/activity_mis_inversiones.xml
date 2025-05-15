@@ -9,11 +9,11 @@
     android:layout_gravity="center"
     tools:context=".MisInversiones">
 
-   <androidx.recyclerview.widget.RecyclerView
-       android:id="@+id/recyclerViewInversiones"
-       android:layout_width="match_parent"
-       android:layout_height="0dp"
-       android:layout_weight="1"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewInversiones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/menuNavegacionMisInversiones"

@@ -8,6 +8,7 @@ import com.example.app_trading.kotlin.CRUD.Entity.Accion
 import com.example.app_trading.kotlin.CRUD.Entity.Inversion
 import com.example.app_trading.kotlin.CRUD.Entity.User
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlin.toString
 
 /**
 * CursorFactory es un objeto que te permitiría personalizar cómo se crean los objetos Cursor.
@@ -427,7 +428,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 precioAccion = cursor.getDouble(cursor.getColumnIndexOrThrow("precioAccion")),
                 precioCompra = cursor.getDouble(cursor.getColumnIndexOrThrow("precioCompra")),
                 cantidadAcciones = cursor.getInt(cursor.getColumnIndexOrThrow("cantidadAcciones")),
-                idUser = cursor.getInt(cursor.getColumnIndexOrThrow("idUser"))
+                idUser = cursor.getInt(cursor.getColumnIndexOrThrow("idUser")).toString() // <-- conversión a String
             )
         }
         cursor.close()
@@ -439,5 +440,10 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.execSQL("DELETE FROM Accion")
         db.execSQL("DELETE FROM User")
         // Si tienes más tablas, agrégalas aquí
+    }
+
+    fun eliminarAccion(idAccion: Int) {
+        val db = this.writableDatabase
+        db.delete("Accion", "id = ?", arrayOf(idAccion.toString()))
     }
 }
